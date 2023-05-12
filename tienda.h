@@ -12,9 +12,11 @@
 #include "cliente.h"
 using namespace std;
 
-class Tienda : public Holder {
+class Tienda {
+    private:
+        vector<Evento> eventos;
     public:
-        Tienda ();
+        Tienda (vector<Evento> &eventos);
         ~Tienda ();
         
         void display (Cliente &);

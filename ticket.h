@@ -8,58 +8,27 @@
 
 #include <string>
 #include <array>
+#include "evento.h"
 using namespace std;
 
 class Ticket {
     private:
         static int objectCount;
         int ID;
-        float price;
         bool VIP;
-        string artist;
-        array <string, 4> at; // country, state, city, event place
-        array <int, 4> time; // year, month, day, hour (24h)
-        string catchphrase;
+        Evento *evento;
     public:
-        /*      <artist>,
-        *       [VIP = assumed false],
-        *       [price = assumed $50.00],
-        *       [catchphrase = assumed empty],
-        *       [time = assumed el convivio tentative date (2023-06-09 12h)],
-        *       [at = assumed México, Baja California, Tijuana, Estadio de los Xolos]
-        */
-        Ticket (string, bool, float, string, array <int, 4>, array <string, 4>);
+        Ticket (bool VIP);
         Ticket ();
         ~Ticket ();
 
         void setID (int);
-        void setPrice (float);
         void setVIP (bool);
-        void setArtist (string);
-        void setAtCountry (string);
-        void setAtState (string);
-        void setAtCity (string);
-        void setAtEventPlace (string);
-        void setYear (int);
-        void setMonth (int);
-        void setDay (int);
-        void setHour (int);
-        void setCatchphrase (string);
+        void setEvento(Evento);
 
         int getID () const;
-        float getPrice () const;
         bool getVIP () const;
-        string getArtist () const;
-        string getAtCountry () const;
-        string getAtState () const;
-        string getAtCity () const;
-        string getAtEventPlace () const;
-        int getYear () const;
-        int getMonth () const;
-        int getDay () const;
-        int getHour () const;
-        string getDate () const;
-        string getCatchphrase () const;
+        Evento getEvento() const;
 
         void use ();
         void display ();

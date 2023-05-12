@@ -10,10 +10,17 @@
 #include <string> // text strings library
 #include <iostream> // input output stream library
 #include <fstream> // file stream library
+#include "evento.h"
 using namespace std;
 
+vector<Evento> eventos{
+        Evento("World's Hottest Tour", "Tijuana", 15, 2, 2023, "Bad Bunny", "Plaza Monumental, Playas de Tijuana, B.C", 20, 0, 4000),
+        Evento("PP", "Tijuana", 25, 10, 2023, "Peso Pluma", "Plaza Monumental, Playas de Tijuana, B.C", 21, 0, 2000),
+        Evento("Saturo World Tour", "Tijuana", 10, 6, 2023, "Rauw Alejandro", "Plaza , Playas de Tijuana, B.C", 19, 0, 3000)
+};
+
 vector<Cliente> clientes;
-Tienda * tienda = new Tienda;
+Tienda * tienda = new Tienda(eventos);
 int sessionID = -1;
 string logo = "   __  _      __        __                       __                ___\n  / /_(_)____/ /_____  / /_____ ___  ____ ______/ /____  _____    /_  |\n / __/ / ___/ //_/ _ \\/ __/ __ `__ \\/ __ `/ ___/ __/ _ \\/ ___/   __/ /\n/ /_/ / /__/ ,< /  __/ /_/ / / / / / /_/ (__  ) /_/  __/ /      / __/ \n\\__/_/\\___/_/|_|\\___/\\__/_/ /_/ /_/\\__,_/____/\\__/\\___/_/      /____/ \n                                                                      \n";
 
@@ -39,7 +46,7 @@ Menu mainMenu ({
 
 Menu session ({
         {'1', {"Inventario", [] () { clientes[sessionID].displayInventario (); } }},
-        {'2', {"Comprar", [] () { tienda->display (clientes[sessionID]); } }}
+        {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }}
 });
 
 int main () {
@@ -48,7 +55,7 @@ int main () {
     mainMenu.display(true, true);
     cout << logo << endl;
     cout << "Guardando datos y limpiando la memoria ..." << endl;
-    delete [] tienda;
+    delete tienda;
     tienda = NULL;
     save ();
     return 0;
