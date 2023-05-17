@@ -8,14 +8,13 @@
 #include <vector>
 #include "ticket.h"
 #include "cliente.h"
+#include "evento.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
 Tienda :: Tienda (vector<Evento> &eventos) {
-    for (Evento &evento: eventos) {
-        this -> eventos.push_back(evento);
-    }
+    this -> eventos = eventos;
 }
 
 Tienda :: ~Tienda () {
@@ -27,9 +26,10 @@ Tienda :: ~Tienda () {
 
 void Tienda :: display (Cliente & C) {
     for (int i = 0; i < eventos.size(); i++) {
-        eventos[i].display();
         float precio = eventos[i].getPrecio();
-        cout << "\tPrecio: " << (C.getCash() >= precio ? "[$" + to_string(precio) + "]" : "<<$" + to_string(precio) + ">>") << endl;
+        eventos[i].display();
+        cout << "Precio: " << (C.getCash() >= precio ? "[$" + to_string(precio) + "]" : "<<$" + to_string(precio) + ">>") << endl;
+        cout << "ID: " << i + 1 << endl;
     }
     int boleto;
     do {
@@ -44,14 +44,21 @@ void Tienda :: display (Cliente & C) {
         }
 
         float precio = eventos[boleto-1].getPrecio();
+        bool vip;
+        cout << "Quisieras que fuera VIP? (+200) (Ingresa 1 para VIP)" << endl;
+        cin >> vip;
+        getchar();
+        if (vip) {
+            precio += 200;
+        }
+
         if (precio > C.getCash()) {
             cout << "A chambear, Buddy. Necesitas $" << fixed << setprecision (2) << (precio - C.getCash()) << " más." << endl;
             return;
         }
         C.setCash(C.getCash() - precio);
 
-        Ticket ticket;
-        ticket.setEvento(eventos[boleto-1]);
+        Ticket ticket(vip, eventos[boleto-1]);
         C.addTicket(ticket);
         cout << "Transacción completada" << endl << endl;
     } while (boleto != 0);

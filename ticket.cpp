@@ -9,19 +9,16 @@ using namespace std;
 
 int Ticket :: objectCount = 0;
 
-Ticket :: Ticket (bool VIP) {
-    this -> VIP = VIP;
-
+Ticket :: Ticket (bool VIP, Evento &evento) : evento(evento), VIP(VIP) {
     setID(++objectCount);
 }
 
-Ticket::Ticket () {
-    
+Ticket::Ticket (Evento &evento): evento(evento), VIP(false) {
+    setID(++objectCount);
 }
 
 Ticket :: ~Ticket () {
     VIP = false;
-    evento = nullptr; // Se usa nullptr en vez de NULL porque según CPP, nullptr es más seguro.
     ID = 0;
 }
 
@@ -31,8 +28,8 @@ void Ticket :: setID (int x) {
 void Ticket :: setVIP (bool x) {
     VIP = x;
 }
-void Ticket :: setEvento(Evento x) {
-    evento = &x;
+void Ticket :: setEvento(Evento &x) {
+    evento = x;
 }
 
 int Ticket :: getID () const {
@@ -42,7 +39,7 @@ bool Ticket :: getVIP () const {
     return VIP;
 }
 Evento Ticket :: getEvento () const {
-    return *evento;
+    return evento;
 }
 
 void Ticket :: use () {
@@ -50,7 +47,7 @@ void Ticket :: use () {
 }
 
 void Ticket :: display () {
-    cout << "[BOLETO] ID: " << getID () << ", VIP: " << (getVIP () ? "Sí" : "No") << endl;
+    cout << "[BOLETO] ID: " << getID () << ", VIP: " << (getVIP () ? "Si" : "No") << endl;
     getEvento().display();
     cout << endl;
 }

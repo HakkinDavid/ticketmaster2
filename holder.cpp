@@ -34,15 +34,6 @@ void Holder :: deleteTicket (int x) {
     }
 }
 
-Ticket Holder :: getTicket (int x) const {
-    if (x < 1 || x > inventario.size()) {
-        cout << "ERROR | OUT OF INVENTORY RANGE (1 TO " << inventario.size() << ")" << endl;
-        Ticket sample;
-        return sample;
-    }
-    return inventario[x-1];
-}
-
 void Holder :: display () {
     for (int i = 0; i < inventario.size(); i++) {
         inventario[i].display();

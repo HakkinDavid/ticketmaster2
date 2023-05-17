@@ -16,15 +16,15 @@ class Ticket {
         static int objectCount;
         int ID;
         bool VIP;
-        Evento *evento;
+        Evento evento;
     public:
-        Ticket (bool VIP);
-        Ticket ();
+        Ticket (bool, Evento&);
+        Ticket (Evento&);
         ~Ticket ();
 
         void setID (int);
         void setVIP (bool);
-        void setEvento(Evento);
+        void setEvento(Evento&);
 
         int getID () const;
         bool getVIP () const;

@@ -4,13 +4,12 @@
 */
 
 #include "menu/menu.h" // library by David Emmanuel Santana Romero which allows for easy recursive menu implementation
-#include "cliente.h"
-#include "ticket.h"
+#include "evento.h"
 #include "tienda.h"
+#include "cliente.h"
 #include <string> // text strings library
 #include <iostream> // input output stream library
 #include <fstream> // file stream library
-#include "evento.h"
 using namespace std;
 
 vector<Evento> eventos{
