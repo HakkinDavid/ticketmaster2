@@ -7,8 +7,6 @@
 #include <iostream>
 #include <math.h>
 #include <conio.h>
-//#include "cliente.h"
-//#include "evento.h"
 
 Administrador::Administrador()
 {
