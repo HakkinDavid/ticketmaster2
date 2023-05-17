@@ -26,6 +26,7 @@ string logo = "   __  _      __        __                       __              
 
 void crearUsuario ();
 void iniciarSesion ();
+void trabajar ();
 void sessionMenu ();
 void save ();
 void load ();
@@ -46,7 +47,8 @@ Menu mainMenu ({
 
 Menu session ({
         {'1', {"Inventario", [] () { clientes[sessionID].displayInventario (); } }},
-        {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }}
+        {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }},
+        {'3', {"Chambear", trabajar}}
 });
 
 int main () {
@@ -69,11 +71,17 @@ void crearUsuario () {
         cin >> pswd;
         getchar();
     } while (pswd.size() < 8 || pswd.size() > 30);
-    float bono = 1 + rand () % 1000;
+    float bono = 5000 + rand () % 1000;
     clientes.emplace_back(pswd);
     clientes.back().setCash(bono);
     cout << "El ID del nuevo usuario es: " << clientes.back().getID() << endl;
     cout << "Bono por crear cuenta: +$" << bono << endl;
+}
+
+void trabajar () {
+    float bono = 500 + rand () % 500;
+    cout << "Has obtenido +$" << bono << endl;
+    clientes[sessionID].setCash(clientes[sessionID].getCash() + bono);
 }
 
 void iniciarSesion () {
@@ -94,7 +102,7 @@ void iniciarSesion () {
         cout << "Contraseña: ";
         getline(cin, pswd);
     }
-    float bono = 1 + rand () % 500;
+    float bono = 500 + rand () % 500;
     sessionID = id-1;
     clientes[sessionID].setCash(clientes[sessionID].getCash() + bono);
     cout << "Sesión iniciada" << endl;
