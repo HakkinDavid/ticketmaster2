@@ -27,7 +27,6 @@ string logo = "   __  _      __        __                       __              
 void crearUsuario ();
 void iniciarSesion ();
 void trabajar ();
-void sessionMenu ();
 void save ();
 void load ();
 
