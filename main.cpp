@@ -7,6 +7,7 @@
 #include "cliente.h"
 #include "ticket.h"
 #include "tienda.h"
+#include "Administrador.h"
 #include <string> // text strings library
 #include <iostream> // input output stream library
 #include <fstream> // file stream library
@@ -22,6 +23,7 @@ void iniciarSesion ();
 void sessionMenu ();
 void save ();
 void load ();
+void opcAdmi();
 
 Menu adminMenu ({
     // {}
@@ -114,3 +116,21 @@ void load () {
     }
     file.close();
 }
+
+void opcAdmi(){
+    cout << "1. Crear Evento" << endl;
+    cout << "2. Finanzas" << endl;
+    cout << "3. Informacion de usuarios ";
+    int opc;
+    cin >> opc;
+    //switch(opc){
+        //case 1:
+        //crearEvento();
+        //case 2:
+        //revisarFinanzas();
+        //case 3:
+        //verUsuarios();
+    }
+}
+
+
