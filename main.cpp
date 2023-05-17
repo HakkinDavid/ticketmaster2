@@ -16,7 +16,7 @@ using namespace std;
 vector<Evento> eventos {
         Evento("World's Hottest Tour", "Tijuana", 15, 2, 2023, "Bad Bunny", "Plaza Monumental, Playas de Tijuana, B.C", 20, 0, 4000),
         Evento("PP", "Tijuana", 25, 10, 2023, "Peso Pluma", "Plaza Monumental, Playas de Tijuana, B.C", 21, 0, 2000),
-        Evento("Saturo World Tour", "Tijuana", 10, 6, 2023, "Rauw Alejandro", "Plaza , Playas de Tijuana, B.C", 19, 0, 3000)
+        Evento("Saturo World Tour", "Tijuana", 10, 6, 2023, "Rauw Alejandro", "Plaza Monumental, Playas de Tijuana, B.C", 19, 0, 3000)
 };
 
 vector<Cliente> clientes;
