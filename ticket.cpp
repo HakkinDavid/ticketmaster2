@@ -15,6 +15,10 @@ Ticket :: Ticket (bool VIP) {
     setID(++objectCount);
 }
 
+Ticket::Ticket () {
+    
+}
+
 Ticket :: ~Ticket () {
     VIP = false;
     evento = nullptr; // Se usa nullptr en vez de NULL porque según CPP, nullptr es más seguro.

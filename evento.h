@@ -50,6 +50,6 @@ public:
     void display() const;
 
 };
-
+#include "evento.cpp"
 
 #endif //TICKETMASTER2_EVENTO_H
