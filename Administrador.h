@@ -31,7 +31,7 @@ class Administrador
 
         void crearAdministrador();
         void iniciarSesion();
-        void ocultarPassword();
+   
 
     private:
         std::string nombre;

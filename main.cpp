@@ -29,6 +29,7 @@ void iniciarSesion ();
 void trabajar ();
 void save ();
 void load ();
+void crearEvento();
 
 Administrador encargado;
 Menu adminMenu ({
@@ -53,10 +54,10 @@ Menu session ({
 });
 
 Menu sessionAdmi ({
-    {'1', {"Crear evento", [] () {}}},
+    {'1', {"Crear evento", [] () {crearEvento();}}},
     {'2', {"Revisar finanzas", [] () {}}},
     {'3', {"Información de usuarios", [] () {}}}
-}, "MENÚ DEL ADMINISTRADOR");
+}, "MENÚ PRINCIPAL");
 
 int main () {
     load ();
@@ -137,3 +138,25 @@ void load () {
     file.close();
 }
 
+void crearEvento(){
+    string nombre, lugar, artista, direccion;
+    int dia, mes, anio, hora, minuto;
+    float precio;
+    cout << "Nombre del evento: ";
+    getline(cin,nombre)
+    cout << "Lugar: ";
+    getline(cin,lugar);
+    cout << "Dia (dd/mm/aaaa):"
+    char c;
+    cin >> dia >> c >> mes >> c >> anio;
+    cout << "Artista: ";
+    getline(cin,artista);
+    cout << "Direccion: ";
+    getline(cin,direccion);
+    cout << "Horario (00:00): "
+    cin >> hora >> c >> minuto;
+    cout << "Precio por boleto:";
+    cin >> precio;
+    Evento e(nombre,lugar,dia,mes,anio,artista,direccion,hora,minuto,precio);
+    eventos.push_back(e);
+}

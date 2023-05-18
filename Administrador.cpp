@@ -115,33 +115,28 @@ void Administrador::crearAdministrador(){
     setTelefono(telefono);
     std::cout << "Correo Electronico: ";
     std::cin >> correo;
+    setCorreo(correo);
     std::cout << "Password: ";
-    ocultarPassword();
+    setPassword(password);
+    setEstatusAdmi(true);
 }
 
 void Administrador::iniciarSesion(){
-    std::cout << "Correo Electronico: ";
-    std::cin >> correo;
-    std::cout << "Password: ";
-    ocultarPassword();
-}
-
-void Administrador::ocultarPassword(){
-   do{
-        char c;
-        while((c = getch()) != '\r')// Leer caracteres hasta que se presione Enter
-        {
-            if(c == '\b') // Si se presiona la tecla de retroceso
-            {
-                password.erase(password.size() - 1); // Eliminar el último caracter de la contraseña
-                std::cout << "\b \b"; // Retroceder para borrar el asterisco y avanzar para volver a ocultar la contraseña
-            }
-            else // Si se ingresa un caracter válido
-            {
-                password += c; // Agregar el caracter a la contraseña
-                std::cout << "*"; // Mostrar un asterisco en lugar del caracter ingresado
-            }
+    if(getEstatusAdmi() == 1){
+        std::cout << "Correo Electronico: ";
+        std::cin >> correo;
+        if(getCorreo != correo){
+            cout << "El correo es incorrecto";
+            return;
         }
-    }while (password.size() > 10);//el tamaño de la contraseña debe ser de 8 carcteres
+        std::cout << "Password: ";
+        do{
+            std::cin >> password;
+        }while(password == getPassword())
+    }
+    else{
+        std::cout << "Administrador Inexistente" << std::endl;
+        return;
+    }
 }
 
