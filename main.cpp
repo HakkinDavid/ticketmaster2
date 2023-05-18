@@ -30,6 +30,8 @@ void trabajar ();
 void save ();
 void load ();
 void crearEvento();
+void estadisticasVentas();
+void infoClientes();
 
 Administrador encargado;
 Menu adminMenu ({
@@ -54,9 +56,9 @@ Menu session ({
 });
 
 Menu sessionAdmi ({
-    {'1', {"Crear evento", [] () {crearEvento();}}},
-    {'2', {"Revisar finanzas", [] () {}}},
-    {'3', {"Información de usuarios", [] () {}}}
+    {'1', {"Crear evento", crearEvento}},
+    {'2', {"Estadisticas de Ventas", infoClientes}},
+    {'3', {"Información de usuarios", estadisticasVentas}}
 }, "MENÚ PRINCIPAL");
 
 int main () {
@@ -160,3 +162,16 @@ void crearEvento(){
     Evento e(nombre,lugar,dia,mes,anio,artista,direccion,hora,minuto,precio);
     eventos.push_back(e);
 }
+
+/** void infoClientes(){
+    for(Cliente i : clientes){
+        cout << i.getID() << endl;
+        cout << "Boletos comprados: " << endl;
+    }
+} 
+
+void estadisticasVentas(){
+
+}
+**/
+
