@@ -30,10 +30,10 @@ void trabajar ();
 void save ();
 void load ();
 
+Administrador encargado;
 Menu adminMenu ({
-    {'1', {"Crear evento", [] () {}}},
-    {'2', {"Revisar finanzas", [] () {}}},
-    {'3', {"Información de usuarios", [] () {}}}
+    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador();}}},
+    {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion();}}}
 }, "MENÚ DEL ADMINISTRADOR");
 
 Menu clientMenu ({
@@ -51,6 +51,12 @@ Menu session ({
         {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }},
         {'3', {"Chambear", trabajar}}
 });
+
+Menu sessionAdmi ({
+    {'1', {"Crear evento", [] () {}}},
+    {'2', {"Revisar finanzas", [] () {}}},
+    {'3', {"Información de usuarios", [] () {}}}
+}, "MENÚ DEL ADMINISTRADOR");
 
 int main () {
     load ();
