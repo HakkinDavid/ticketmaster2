@@ -32,6 +32,7 @@ class Cliente : public Holder {
         string getPassword () const;
         void displayInventario ();
 
+    protected:
         void useTicket (int);
 };
 

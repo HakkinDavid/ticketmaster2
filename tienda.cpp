@@ -8,30 +8,28 @@
 #include <vector>
 #include "ticket.h"
 #include "cliente.h"
+#include "evento.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
-Tienda :: Tienda () {
-    inventario.emplace_back();
-    inventario.emplace_back(
-        "Cuarteto de Nos",
-        true,
-        100,
-        "En un mundo que discrimina y tortura\nQue al diferente le pasa factura\nAl que va contra corriente, tritura\nClausura y quiere esconder como basura\nQue margina, incrimina y censura\nPor delante aprueba y por detrás murmura\nQue castiga al que se va de la estructura\nY que nunca sutura lo que fisura\nY el que desafina en su partitura\nVa contra natura o tiene una intención oscura\nY su lucha será dura con fachadas que parecen blandas\nPero almas que no se fracturan",
-        array <int, 4> {2023, 03, 28, 20},
-        array <string, 4> {"México", "Baja California", "Tijuana", "BlackBox"}
-    );
+Tienda :: Tienda (vector<Evento> &eventos) {
+    this -> eventos = eventos;
 }
 
 Tienda :: ~Tienda () {
-    inventario.clear();
+    for (Evento &evento: eventos) {
+        delete &evento;
+    }
+    eventos.clear();
 }
 
 void Tienda :: display (Cliente & C) {
-    for (int i = 0; i < inventario.size(); i++) {
-        inventario[i].display();
-        cout << "\tPrecio: " << (C.getCash() >= inventario[i].getPrice() ? "[$" + to_string(inventario[i].getPrice()) + "]" : "<<$" + to_string(inventario[i].getPrice()) + ">>") << endl;
+    for (int i = 0; i < eventos.size(); i++) {
+        float precio = eventos[i].getPrecio();
+        eventos[i].display();
+        cout << "Precio: " << (C.getCash() >= precio ? "[$" + to_string(precio) + "]" : "<<$" + to_string(precio) + ">>") << endl;
+        cout << "ID: " << i + 1 << endl;
     }
     int boleto;
     do {
@@ -40,16 +38,28 @@ void Tienda :: display (Cliente & C) {
         cout << "Especifica el ID de boleto a comprar [0 para regresar]: ";
         cin >> boleto;
         getchar();
-        if (boleto < 1 || boleto > inventario.size()) {
+        if (boleto < 1 || boleto > eventos.size()) {
             cout << "Regresando ..." << endl;
             break;
         }
-        if (inventario[boleto-1].getPrice() > C.getCash()) {
-            cout << "A chambear, Buddy. Necesitas $" << fixed << setprecision (2) << (inventario[boleto-1].getPrice() - C.getCash()) << " más." << endl;
+
+        float precio = eventos[boleto-1].getPrecio();
+        bool vip;
+        cout << "Quisieras que fuera VIP? (+200) (Ingresa 1 para VIP)" << endl;
+        cin >> vip;
+        getchar();
+        if (vip) {
+            precio += 200;
+        }
+
+        if (precio > C.getCash()) {
+            cout << "A chambear, Buddy. Necesitas $" << fixed << setprecision (2) << (precio - C.getCash()) << " más." << endl;
             return;
         }
-        C.setCash(C.getCash() - inventario[boleto-1].getPrice());
-        C.addTicket(inventario[boleto-1]);
+        C.setCash(C.getCash() - precio);
+
+        Ticket ticket(vip, eventos[boleto-1]);
+        C.addTicket(ticket);
         cout << "Transacción completada" << endl << endl;
     } while (boleto != 0);
 }

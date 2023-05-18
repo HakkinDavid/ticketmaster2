@@ -2,8 +2,9 @@
 #define TICKETMASTER2_EVENTO_H
 
 #include <string>
+using namespace std;
 
-class evento {
+class Evento {
 private:
     std::string nombre;
     std::string lugar;
@@ -11,7 +12,12 @@ private:
     std::string artista;
     std::string direccion;
     int hora, minuto;
+    float precio;
 public:
+
+    Evento(string nombre, string lugar, int dia, int mes, int anio, string artista, string direccion, int hora, int minuto, float precio);
+
+    ~Evento();
 
     std::string getNombre() const;
 
@@ -37,7 +43,13 @@ public:
 
     std::string getHorario() const;
 
-};
+    float getPrecio() const;
 
+    void setPrecio(float precio);
+
+    void display() const;
+
+};
+#include "evento.cpp"
 
 #endif //TICKETMASTER2_EVENTO_H
