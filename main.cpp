@@ -29,10 +29,11 @@ void iniciarSesion ();
 void trabajar ();
 void save ();
 void load ();
-void opcAdmi();
 
 Menu adminMenu ({
-    // {}
+    {'1', {"Crear evento", [] () {}}},
+    {'2', {"Revisar finanzas", [] () {}}},
+    {'3', {"Información de usuarios", [] () {}}}
 }, "MENÚ DEL ADMINISTRADOR");
 
 Menu clientMenu ({
@@ -129,21 +130,4 @@ void load () {
     }
     file.close();
 }
-
-void opcAdmi(){
-    cout << "1. Crear Evento" << endl;
-    cout << "2. Finanzas" << endl;
-    cout << "3. Informacion de usuarios ";
-    int opc;
-    cin >> opc;
-    //switch(opc){
-        //case 1:
-        //crearEvento();
-        //case 2:
-        //revisarFinanzas();
-        //case 3:
-        //verUsuarios();
-    //}
-}
-
 
