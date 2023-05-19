@@ -35,7 +35,7 @@ void infoClientes();
 
 Administrador encargado;
 Menu adminMenu ({
-    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador();}}},
+    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador();} }},
     {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion();}}}
 }, "MENÚ DEL ADMINISTRADOR");
 
@@ -145,17 +145,17 @@ void crearEvento(){
     int dia, mes, anio, hora, minuto;
     float precio;
     cout << "Nombre del evento: ";
-    getline(cin,nombre)
+    getline(cin,nombre);
     cout << "Lugar: ";
     getline(cin,lugar);
-    cout << "Dia (dd/mm/aaaa):"
+    cout << "Dia (dd/mm/aaaa):";
     char c;
     cin >> dia >> c >> mes >> c >> anio;
     cout << "Artista: ";
     getline(cin,artista);
     cout << "Direccion: ";
     getline(cin,direccion);
-    cout << "Horario (00:00): "
+    cout << "Horario (00:00): ";
     cin >> hora >> c >> minuto;
     cout << "Precio por boleto:";
     cin >> precio;
@@ -163,15 +163,23 @@ void crearEvento(){
     eventos.push_back(e);
 }
 
-/** void infoClientes(){
+void infoClientes(){
     for(Cliente i : clientes){
         cout << i.getID() << endl;
-        cout << "Boletos comprados: " << endl;
+        //cout << "Boletos comprados: " << i.getInventario().size() << endl;
+        cout << "Saldo actual: $" << i.getCash() << endl;
+        cout << endl;
     }
 } 
 
 void estadisticasVentas(){
-
+    float costoTotal, ingresos, ganancias, porcentaje;
+    cout << "Ingresos Totales: $" << ingresos << endl;
+    cout << "Costo Total: $" << costoTotal << endl;
+    cin >> costoTotal;
+    cout << "Ganancias: $" << ganancias << endl;
+    cout << "Porcentaje de Ganancias: " << porcentaje << "%" << endl;
 }
-**/
+
+
 
