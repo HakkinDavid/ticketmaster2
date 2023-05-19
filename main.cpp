@@ -165,8 +165,9 @@ void crearEvento(){
 
 void infoClientes(){
     for(Cliente i : clientes){
+        Holder holder;
         cout << i.getID() << endl;
-        //cout << "Boletos comprados: " << i.getInventario().size() << endl;
+        cout << "Boletos comprados: " << holder.getInventario();
         cout << "Saldo actual: $" << i.getCash() << endl;
         cout << endl;
     }
@@ -174,10 +175,14 @@ void infoClientes(){
 
 void estadisticasVentas(){
     float costoTotal, ingresos, ganancias, porcentaje;
+    for(Cliente i : clientes){
+        ingresos += i.getCash();
+    }
     cout << "Ingresos Totales: $" << ingresos << endl;
     cout << "Costo Total: $" << costoTotal << endl;
     cin >> costoTotal;
-    cout << "Ganancias: $" << ganancias << endl;
+    cout << "Ganancias: $" << ingresos - costoTotal << endl;
+    porcentaje = (ganancias / ingresos) * 100;
     cout << "Porcentaje de Ganancias: " << porcentaje << "%" << endl;
 }
 

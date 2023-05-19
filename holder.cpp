@@ -18,6 +18,10 @@ void Holder :: setInventario (vector <Ticket> & x) {
     inventario = x;
 }
 
+int Holder :: getInventario()const{
+    return inventario.size();
+}
+
 void Holder :: addTicket (Ticket & x) {
     inventario.push_back(x);
     inventario.back().setID(inventario.size());
