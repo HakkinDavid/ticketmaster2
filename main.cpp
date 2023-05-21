@@ -34,6 +34,7 @@ void estadisticasVentas();
 void infoClientes();
 
 Administrador encargado;
+//se despliega correctamente en pantalla?
 Menu adminMenu ({
     {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador(); sessionAdmi.display(true,true);} }},
     {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion(); sessionAdmi.display(true,true);} }}
@@ -167,6 +168,8 @@ void infoClientes(){
     for(Cliente i : clientes){
         Holder holder;
         cout << i.getID() << endl;
+        //hice una funcion getInventario para saber cuantos boletos compro cada usuario
+        //pero no se si inventario es el que guarda esos datos
         cout << "Boletos comprados: " << holder.getInventario();
         cout << "Saldo actual: $" << i.getCash() << endl;
         cout << endl;
@@ -176,6 +179,8 @@ void infoClientes(){
 void estadisticasVentas(){
     float costoTotal, ingresos, ganancias, porcentaje;
     for(Cliente i : clientes){
+        //igual en getCash ocupo el dinero que gastaron los clientes por la compra de
+        //boletos pero no se si esa funcion sea la correcta
         ingresos += i.getCash();
     }
     cout << "Ingresos Totales: $" << ingresos << endl;
