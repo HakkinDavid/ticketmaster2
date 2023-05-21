@@ -35,8 +35,8 @@ void infoClientes();
 
 Administrador encargado;
 Menu adminMenu ({
-    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador();} }},
-    {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion();}}}
+    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador(); sessionAdmi.display(true,true);} }},
+    {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion(); sessionAdmi.display(true,true);} }}
 }, "MENÚ DEL ADMINISTRADOR");
 
 Menu clientMenu ({
