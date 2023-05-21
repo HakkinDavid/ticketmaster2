@@ -67,6 +67,11 @@ void Cliente :: useTicket (int x) {
 }
 
 void Cliente::displayInventario () {
+    if (inventario.size() < 1) {
+        cout << "No tienes boletos. [Enter para regresar]" << endl;
+        getchar();
+        return;
+    }
     Holder::display();
     int boleto;
     cout << "Especifica el ID de boleto a usar [0 para ninguno]: ";

@@ -1,47 +1,32 @@
 /** nombre: Administrador
-    colaboradores: Renata Flores
+    colaboradores: Renata Flores y David Emmanuel Santana Romero
     fecha: 30 de abril de 2023 **/
 
 #ifndef ADMINISTRADOR_H
 #define ADMINISTRADOR_H
-
 #include <string>
+#include "cliente.h"
+
+using namespace std;
 
 class Administrador
 {
     public:
-        Administrador();
-        virtual ~Administrador();
-        //funciones set
-        void setNombre(std::string);
-        void setApellido(std::string);
-        void setTelefono(long long);
-        void setEmpresa(std::string);
-        void setCorreo(std::string);
-        void setPassword(std::string);
-        void setEstatusAdmi(bool);
-        //funciones get
-        std::string getNombre()const;
-        std::string getApellido()const;
-        long long getTelefono()const;
-        std::string getEmpresa()const;
-        std::string getCorreo()const;
-        std::string getPassword()const;
-        bool getEstatusAdmi()const;
+        Administrador (vector<Evento> &, vector<Cliente> &, string);
+        ~Administrador ();
 
-        void crearAdministrador();
-        void iniciarSesion();
-   
+        void setPassword (string);
+        string getPassword ();
 
+        void crearEvento ();
+        void infoClientes ();
+        void estadisticasVentas (Tienda &);
     private:
-        std::string nombre;
-        std::string apellido;
-        long long telefono;
-        std::string empresa;
-        std::string correo;
-        std::string password;
-        bool estatusAdmi;
-
+        string password;
+        vector<Evento>* eventos;
+        vector<Cliente>* clientes;
 };
+
+#include "Administrador.cpp"
 
 #endif // ADMINISTRADOR_H

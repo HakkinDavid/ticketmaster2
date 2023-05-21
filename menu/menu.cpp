@@ -40,6 +40,7 @@ void Menu :: press (bool loop = false) {
         }
     }
     if (!found) {
+        display();
         press (true);
     }
     else if (loop) {

@@ -9,11 +9,11 @@ using namespace std;
 
 int Ticket :: objectCount = 0;
 
-Ticket :: Ticket (bool VIP, Evento &evento) : evento(evento), VIP(VIP) {
+Ticket :: Ticket (bool VIP, Evento &evento) : evento(&evento), VIP(VIP) {
     setID(++objectCount);
 }
 
-Ticket::Ticket (Evento &evento): evento(evento), VIP(false) {
+Ticket::Ticket (Evento &evento): evento(&evento), VIP(false) {
     setID(++objectCount);
 }
 
@@ -29,7 +29,7 @@ void Ticket :: setVIP (bool x) {
     VIP = x;
 }
 void Ticket :: setEvento(Evento &x) {
-    evento = x;
+    evento = &x;
 }
 
 int Ticket :: getID () const {
@@ -39,15 +39,16 @@ bool Ticket :: getVIP () const {
     return VIP;
 }
 Evento Ticket :: getEvento () const {
-    return evento;
+    return *evento;
 }
 
 void Ticket :: use () {
+    cout << evento->getCatchphrase () << endl;
     cout << "BOLETO CON ID " << ID << " UTILIZADO." << endl;
 }
 
 void Ticket :: display () {
-    cout << "[BOLETO] ID: " << getID () << ", VIP: " << (getVIP () ? "Si" : "No") << endl;
+    cout << "[BOLETO] ID: " << getID () << ", VIP: " << (getVIP () ? "Sí" : "No") << endl;
     getEvento().display();
     cout << endl;
 }

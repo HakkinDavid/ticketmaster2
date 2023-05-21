@@ -16,7 +16,7 @@ class Ticket {
         static int objectCount;
         int ID;
         bool VIP;
-        Evento evento;
+        Evento * evento;
     public:
         Ticket (bool, Evento&);
         Ticket (Evento&);

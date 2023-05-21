@@ -18,7 +18,7 @@ class Holder {
         ~Holder ();
 
         void setInventario (vector <Ticket> &);
-        int getInventario()const;
+        int getInventarioSize () const;
         void addTicket (Ticket &);
         void deleteTicket (int);
 

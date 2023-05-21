@@ -14,12 +14,14 @@ using namespace std;
 
 class Tienda {
     private:
-        vector<Evento> eventos;
+        vector<Evento>* eventos;
+        float fondos;
     public:
         Tienda (vector<Evento> &eventos);
         ~Tienda ();
         
         void display (Cliente &);
+        float getFondos () const;
 };
 
 #include "tienda.cpp"

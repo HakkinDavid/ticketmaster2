@@ -18,7 +18,7 @@ void Holder :: setInventario (vector <Ticket> & x) {
     inventario = x;
 }
 
-int Holder :: getInventario()const{
+int Holder :: getInventarioSize () const {
     return inventario.size();
 }
 

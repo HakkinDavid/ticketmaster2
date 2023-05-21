@@ -11,12 +11,14 @@
 #include <string> // text strings library
 #include <iostream> // input output stream library
 #include <fstream> // file stream library
+#include "ricky.h" // completely necessary library
 using namespace std;
 
 vector<Evento> eventos {
-        Evento("World's Hottest Tour", "Tijuana", 15, 2, 2023, "Bad Bunny", "Plaza Monumental, Playas de Tijuana, B.C", 20, 0, 4000),
-        Evento("PP", "Tijuana", 25, 10, 2023, "Peso Pluma", "Plaza Monumental, Playas de Tijuana, B.C", 21, 0, 2000),
-        Evento("Saturo World Tour", "Tijuana", 10, 6, 2023, "Rauw Alejandro", "Plaza Monumental, Playas de Tijuana, B.C", 19, 0, 3000)
+    Evento("Tour Lámina Once", "Tijuana", 26, 3, 2023, "El Cuarteto de Nos", "Black Box, Tijuana, B.C.", 20, 0, 700, "🎵En el día de hoy:\nProducción de bienes improductivos\nCapacitación de Diógenes mediáticos\nControl de obsolescencia planificada\nY seguimos con el show...🎶"),
+    Evento("World's Hottest Tour", "Tijuana", 15, 2, 2023, "Bad Bunny", "Plaza Monumental, Playas de Tijuana, B.C", 20, 0, 4000, "🎵*Ininteligible*🎶 (No sé, yo sí terminé la primaria.)"),
+    Evento("PP", "Tijuana", 25, 10, 2023, "Peso Pluma", "Plaza Monumental, Playas de Tijuana, B.C", 21, 0, 2000),
+    Evento("Saturo World Tour", "Tijuana", 10, 6, 2023, "Rauw Alejandro", "Plaza Monumental, Playas de Tijuana, B.C", 19, 0, 3000)
 };
 
 vector<Cliente> clientes;
@@ -24,47 +26,43 @@ Tienda * tienda = new Tienda(eventos);
 int sessionID = -1;
 string logo = "   __  _      __        __                       __                ___\n  / /_(_)____/ /_____  / /_____ ___  ____ ______/ /____  _____    /_  |\n / __/ / ___/ //_/ _ \\/ __/ __ `__ \\/ __ `/ ___/ __/ _ \\/ ___/   __/ /\n/ /_/ / /__/ ,< /  __/ /_/ / / / / / /_/ (__  ) /_/  __/ /      / __/ \n\\__/_/\\___/_/|_|\\___/\\__/_/ /_/ /_/\\__,_/____/\\__/\\___/_/      /____/ \n                                                                      \n";
 
+Rick rick;
+
 void crearUsuario ();
 void iniciarSesion ();
 void trabajar ();
 void save ();
 void load ();
-void crearEvento();
-void estadisticasVentas();
-void infoClientes();
+void adminLogin ();
+void changeAdminLogin ();
 
-Administrador encargado;
-//se despliega correctamente en pantalla?
+Administrador Encargado (eventos, clientes, "blockbuster123");
+
 Menu adminMenu ({
-    {'1', {"Crear Cuenta", [] () {encargado.crearAdministrador(); sessionAdmi.display(true,true);} }},
-    {'2', {"Iniciar Sesion", [] () {encargado.iniciarSesion(); sessionAdmi.display(true,true);} }}
-}, "MENÚ DEL ADMINISTRADOR");
+    {'1', {"Crear evento", [] () { Encargado.crearEvento (); }}},
+    {'2', {"Estadísticas de ventas", [] () { Encargado.estadisticasVentas (*tienda); }}},
+    {'3', {"Información de usuarios", [] () { Encargado.infoClientes (); }}},
+    {'4', {"Cambiar contraseña maestra", changeAdminLogin }}
+}, logo + "MENÚ DEL ADMINISTRADOR");
 
 Menu clientMenu ({
     {'1', {"Iniciar sesión", iniciarSesion}},
     {'2', {"Crear usuario", crearUsuario}}
-}, "MENÚ DEL CLIENTE");
+}, logo + "MENÚ DEL CLIENTE");
 
 Menu mainMenu ({
     {'1', {"Cliente", [] () { clientMenu.display(true, true); }}},
-    {'2', {"Administrador", [] () { adminMenu.display(true, true); }}}
+    {'2', {"Administrador", adminLogin }}
 }, logo + "MENÚ PRINCIPAL");
 
 Menu session ({
         {'1', {"Inventario", [] () { clientes[sessionID].displayInventario (); } }},
         {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }},
         {'3', {"Chambear", trabajar}}
-});
-
-Menu sessionAdmi ({
-    {'1', {"Crear evento", crearEvento}},
-    {'2', {"Estadisticas de Ventas", infoClientes}},
-    {'3', {"Información de usuarios", estadisticasVentas}}
-}, "MENÚ PRINCIPAL");
+}, logo);
 
 int main () {
     load ();
-    cout << "CLIENTES: " << clientes.size() << endl;
     mainMenu.display(true, true);
     cout << logo << endl;
     cout << "Guardando datos y limpiando la memoria ..." << endl;
@@ -79,9 +77,18 @@ void crearUsuario () {
     string pswd;
     do {
         cout << "Contraseña: ";
-        cin >> pswd;
-        getchar();
+        getline(cin, pswd);
+        if (rick.isPasscode(pswd)) {
+            rick.roll();
+            return;
+        }
     } while (pswd.size() < 8 || pswd.size() > 30);
+    system ("cls");
+    cout << "Contraseña: ";
+    for (int i = 0; i < pswd.size(); i++) {
+        cout << "*";
+    }
+    cout << endl;
     float bono = 5000 + rand () % 1000;
     clientes.emplace_back(pswd);
     clientes.back().setCash(bono);
@@ -112,7 +119,18 @@ void iniciarSesion () {
         }
         cout << "Contraseña: ";
         getline(cin, pswd);
+        if (rick.isPasscode(pswd)) {
+            rick.roll();
+            return;
+        }
     }
+    system ("cls");
+    cout << "ID: " << id << endl;
+    cout << "Contraseña: ";
+    for (int i = 0; i < pswd.size(); i++) {
+        cout << "*";
+    }
+    cout << endl;
     float bono = 500 + rand () % 500;
     sessionID = id-1;
     clientes[sessionID].setCash(clientes[sessionID].getCash() + bono);
@@ -122,16 +140,70 @@ void iniciarSesion () {
     sessionID = -1;
 }
 
+void adminLogin () {
+    string pswd;
+    for (int attempts = 0; Encargado.getPassword() != pswd; attempts++) {
+        if (attempts >= 3) {
+            cout << "INTÉNTALO MÁS TARDE" << endl;
+            return;
+        }
+        cout << "Contraseña: ";
+        getline(cin, pswd);
+        if (rick.isPasscode(pswd)) {
+            rick.roll();
+            return;
+        }
+    }
+    system("cls");
+    cout << "Contraseña: ";
+    for (int i = 0; i < pswd.size(); i++) {
+        cout << "*";
+    }
+    cout << endl;
+    adminMenu.display(true, true);
+}
+
+void changeAdminLogin () {
+    cout << "Proporciona una contraseña de 8 a 30 caracteres" << endl;
+    string pswd;
+    do {
+        cout << "Contraseña: ";
+        getline(cin, pswd);
+        if (rick.isPasscode(pswd)) {
+            rick.roll();
+            return;
+        }
+    } while (pswd.size() < 8 || pswd.size() > 30);
+    system("cls");
+    cout << "Contraseña: ";
+    for (int i = 0; i < pswd.size(); i++) {
+        cout << "*";
+    }
+    cout << endl;
+    Encargado.setPassword(pswd);
+}
+
 void save () {
-    ofstream file ("clientes.txt");
-    for (const auto x : clientes) {
+    ofstream file ("usuarios.txt");
+    file << Encargado.getPassword() << endl;
+    for (const auto &x : clientes) {
         file << x.getPassword() << endl;
     }
     file.close();
 }
 
 void load () {
-    ifstream file ("clientes.txt");
+    ifstream file ("usuarios.txt");
+    if (!file.good()) {
+        ofstream newFile ("usuarios.txt");
+        newFile << endl;
+        newFile.close();
+        file.close();
+        return;
+    }
+    string adminPswd;
+    file >> adminPswd;
+    if (adminPswd.size() >= 8 && adminPswd.size() <= 30) Encargado.setPassword(adminPswd);
     while (file.good()) {
         string pswd;
         file >> pswd;
@@ -140,56 +212,3 @@ void load () {
     }
     file.close();
 }
-
-void crearEvento(){
-    string nombre, lugar, artista, direccion;
-    int dia, mes, anio, hora, minuto;
-    float precio;
-    cout << "Nombre del evento: ";
-    getline(cin,nombre);
-    cout << "Lugar: ";
-    getline(cin,lugar);
-    cout << "Dia (dd/mm/aaaa):";
-    char c;
-    cin >> dia >> c >> mes >> c >> anio;
-    cout << "Artista: ";
-    getline(cin,artista);
-    cout << "Direccion: ";
-    getline(cin,direccion);
-    cout << "Horario (00:00): ";
-    cin >> hora >> c >> minuto;
-    cout << "Precio por boleto:";
-    cin >> precio;
-    Evento e(nombre,lugar,dia,mes,anio,artista,direccion,hora,minuto,precio);
-    eventos.push_back(e);
-}
-
-void infoClientes(){
-    for(Cliente i : clientes){
-        Holder holder;
-        cout << i.getID() << endl;
-        //hice una funcion getInventario para saber cuantos boletos compro cada usuario
-        //pero no se si inventario es el que guarda esos datos
-        cout << "Boletos comprados: " << holder.getInventario();
-        cout << "Saldo actual: $" << i.getCash() << endl;
-        cout << endl;
-    }
-} 
-
-void estadisticasVentas(){
-    float costoTotal, ingresos, ganancias, porcentaje;
-    for(Cliente i : clientes){
-        //igual en getCash ocupo el dinero que gastaron los clientes por la compra de
-        //boletos pero no se si esa funcion sea la correcta
-        ingresos += i.getCash();
-    }
-    cout << "Ingresos Totales: $" << ingresos << endl;
-    cout << "Costo Total: $" << costoTotal << endl;
-    cin >> costoTotal;
-    cout << "Ganancias: $" << ingresos - costoTotal << endl;
-    porcentaje = (ganancias / ingresos) * 100;
-    cout << "Porcentaje de Ganancias: " << porcentaje << "%" << endl;
-}
-
-
-

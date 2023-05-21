@@ -1,142 +1,99 @@
 /** nombre: Administrador
-    colaboradores: Renata Flores
+    colaboradores: Renata Flores y David Emmanuel Santana Romero
     fecha: 30 de abril de 2023 **/
 
 #include "Administrador.h"
 #include <string>
 #include <iostream>
-#include <math.h>
-#include <conio.h>
+#include "cliente.h"
 
-Administrador::Administrador()
-{
-    nombre = "";
-    apellido = "";
-    telefono = 0;
-    empresa = "";
-    correo = "";
+using namespace std;
+
+Administrador :: Administrador (vector<Evento> &e, vector<Cliente> &c, string password = "12345678") {
+    eventos = &e;
+    clientes = &c;
+    this -> password = password;
+}
+
+Administrador :: ~Administrador () {
+    eventos = nullptr;
+    clientes = nullptr;
     password = "";
-    estatusAdmi = false;
 }
 
-Administrador::~Administrador(){}
-//funciones set
-void Administrador::setNombre(std::string nombre){
-    if(nombre.size() > 30){
-        std::cout << "El nombre no puede ser de longitud mayor a 30 caracteres" << std::endl;
-        return;
-    }else
-    {
-        this -> nombre = nombre;
-    }
-}
-void Administrador::setApellido(std::string apellido){
-    if(apellido.size() > 25){
-        std::cout << "El appellido no puede ser de longitud mayor a 25 caracteres" << std::endl;
-        return;
-    }else
-    {
-        this -> apellido = apellido;
-    }
-}
-void Administrador::setTelefono(long long telefono){
-    int size = int (log10(telefono) +1);
-    if(size == 10)
-        this -> telefono = telefono;
-    else{
-        std::cout << "El numero de telefono no es correcto" << std::endl;
-        return;
-    }
-}
-void Administrador::setEmpresa(std::string empresa){
-    if(empresa.size() > 25){
-        std::cout << "No puedes utilizar mas de 25 caracteres" << std::endl;
-        return;
-    }else
-    {
-        this -> empresa = empresa;
-    }
-}
-void Administrador::setCorreo(std::string correo){
-    if(correo.size() > 30){
-        std::cout << "No puede utilizar mas de 30 caracteres" << std::endl;
-        return;
-    }else
-    {
-        this -> correo = correo;
-    }
-}
-void Administrador::setPassword(std::string password){
+void Administrador :: setPassword (string password){
     if (password.size() < 8 || password.size() > 30) {
-        std::cout << "La contrasena es de 8 carcteres a 30 caracteres";
+        cout << "La contraseña debe tener de 8 a 30 caracteres" << endl;
         return;
-    }else
+    } else
     {
         this -> password = password;
     }
 }
-void Administrador::setEstatusAdmi(bool estatusAdmi){
-    this -> estatusAdmi = estatusAdmi;
-}
-//funciones get
-std::string Administrador::getNombre()const{
-    return nombre;
-}
-std::string Administrador::getApellido()const{
-    return apellido;
-}
-long long Administrador::getTelefono()const{
-    return telefono;
-}
-std::string Administrador::getEmpresa()const{
-    return empresa;
-}
-std::string Administrador::getCorreo()const{
-    return correo;
-}
-std::string Administrador::getPassword()const{
+
+string Administrador :: getPassword () {
     return password;
 }
-//determinar si existe un administrador o no
-bool Administrador::getEstatusAdmi()const{
-    return estatusAdmi;
-}
-//fin funciones get
 
-void Administrador::crearAdministrador(){
-    std::cin.ignore();
-    std::cout << "Nombre(s): "; getline(std::cin, nombre);
-    setNombre(nombre);
-    std::cout << "Apellido(s): "; getline(std::cin, apellido);
-    setApellido(apellido);
-    std::cout << "Empresa: "; getline(std::cin, empresa);
-    setEmpresa(empresa);
-    std::cout << "Telefono: "; std::cin >> telefono;
-    setTelefono(telefono);
-    std::cout << "Correo Electronico: ";
-    std::cin >> correo;
-    setCorreo(correo);
-    std::cout << "Password: ";
-    setPassword(password);
-    setEstatusAdmi(true);
+void Administrador :: crearEvento () {
+    eventos->emplace_back();
+    Evento *eventito = &eventos->back();
+    string data;
+    array <int, 3> fecha;
+    array <int, 2> horario;
+    float precio;
+
+    cout << "Nombre del evento: ";
+    getline(cin, data);
+    (*eventito).setNombre(data);
+
+    cout << "Lugar: ";
+    getline(cin, data);
+    (*eventito).setLugar(data);
+
+    do {
+        cout << "Año: "; cin >> fecha[0]; getchar();
+        cout << "Mes: "; cin >> fecha[1]; getchar();
+        cout << "Día: "; cin >> fecha[2]; getchar();
+    } while (!(*eventito).setFecha(fecha[2], fecha[1], fecha[0]));
+
+    do {
+        cout << "Hora: "; cin >> horario[0]; getchar();
+        cout << "Minuto: "; cin >> horario[1]; getchar();
+    } while (!(*eventito).setHorario(horario[0], horario[1]));
+
+    cout << "Artista: ";
+    getline(cin, data);
+    (*eventito).setArtista(data);
+
+    cout << "Dirección: ";
+    getline(cin, data);
+    (*eventito).setDireccion(data);
+
+    cout << "Precio por boleto: $";
+    cin >> precio;
+    getchar();
+
+    (*eventito).setPrecio(precio);
+    //eventos->emplace_back(nombre,lugar,dia,mes,anio,artista,direccion,hora,minuto,precio);
 }
 
-void Administrador::iniciarSesion(){
-    if(getEstatusAdmi() == 1){
-        std::cout << "Correo Electronico: ";
-        std::cin >> correo;
-        if(getCorreo != correo){
-            cout << "El correo es incorrecto";
-            return;
-        }
-        std::cout << "Password: ";
-        do{
-            std::cin >> password;
-        }while(password == getPassword())
+void Administrador :: infoClientes () {
+    for(Cliente &i : (*clientes)){
+        cout << "[ID: " << i.getID() << " | ";
+        //hice una funcion getInventario para saber cuantos boletos compro cada usuario
+        //pero no se si inventario es el que guarda esos datos
+        cout << "Cantidad de boletos: " << i.getInventarioSize() << " | ";
+        cout << "Saldo actual: $" << i.getCash() << "]" << endl;
     }
-    else{
-        std::cout << "Administrador Inexistente" << std::endl;
-        return;
-    }
-}
+} 
 
+void Administrador :: estadisticasVentas (Tienda &tienda) {
+    float costoTotal;
+    cout << "Ingresos totales: $" << tienda.getFondos() << endl;
+    cout << "Costo administrativo: $";
+    cin >> costoTotal;
+    getchar();
+    cout << "Ganancias: $" << tienda.getFondos() - costoTotal << endl;
+    cout << "Porcentaje de Ganancias: " << ((tienda.getFondos() - costoTotal) / tienda.getFondos()) * 100 << "%" << endl;
+}

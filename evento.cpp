@@ -1,8 +1,18 @@
+/*  nombre: Evento
+*   colaboradores: David Emmanuel Santana Romero y Braulio Chamerry
+*   fecha: 21 de mayo de 2023
+*/
+
+// dios, qué horror de constructor
+// lo que es ser necio y no querer usar arreglos para agrupar datos similares
+// pero como yo no hago las cosas al último ni a la carrera, no opino.
+
 #include <iostream>
 #include "evento.h"
+using namespace std;
 
-Evento::Evento(std::string nombre, std::string lugar, int dia, int mes, int anio, std::string artista,
-               std::string direccion, int hora, int minuto, float precio) {
+Evento :: Evento(string nombre = "Torero", string lugar = "Estadio Azteca", int dia = 9, int mes = 6, int anio = 2023, string artista = "Chayanne",
+               string direccion = "CDMX", int hora = 12, int minuto = 0, float precio = 20000, string catchphrase = "🎵") {
     this -> nombre = nombre;
     this -> lugar = lugar;
     this -> dia = dia;
@@ -13,9 +23,10 @@ Evento::Evento(std::string nombre, std::string lugar, int dia, int mes, int anio
     this -> hora = hora;
     this -> minuto = minuto;
     this -> precio = precio;
+    this -> catchphrase = catchphrase;
 }
 
-Evento::~Evento() {
+Evento :: ~Evento() {
     this -> nombre = "";
     this -> lugar = "";
     this -> dia = 0;
@@ -28,35 +39,35 @@ Evento::~Evento() {
     this -> precio = 0;
 }
 
-std::string Evento::getNombre() const {
+string Evento :: getNombre() const {
     return nombre;
 }
 
-void Evento::setNombre(const std::string &nombre) {
-    Evento::nombre = nombre;
+void Evento :: setNombre(const string &nombre) {
+    this -> nombre = nombre;
 }
 
-std::string Evento::getLugar() const {
+string Evento :: getLugar() const {
     return lugar;
 }
 
-void Evento::setLugar(const std::string &lugar) {
-    Evento::lugar = lugar;
+void Evento :: setLugar(const string &lugar) {
+    this -> lugar = lugar;
 }
 
-std::string Evento::getFecha() const {
-    return std::to_string(dia) + "/" + std::to_string(mes) + "/" + std::to_string(anio);
+string Evento :: getFecha() const {
+    return (dia < 10 ? "0" : "") + to_string(dia) + "/" + (mes < 10 ? "0" : "") + to_string(mes) + "/" + (anio < 10 ? "0" : "") + to_string(anio);
 }
 
-void Evento::setFecha(int dia, int mes, int anio) {
+bool Evento :: setFecha(int dia, int mes, int anio) {
     if (anio < 2023) {
-        std::cerr << "El anio tiene que ser despues de 2023.";
-        return;
+        cout << "El año tiene que ser después de 2023.";
+        return false;
     }
 
     if (mes < 1 || mes > 12) {
-        std::cerr << "El mes tiene que ser entre 1 y 12";
-        return;
+        cout << "El mes tiene que ser entre 1 y 12";
+        return false;
     }
 
     if (    dia < 1 // no month has day 0, nor does it have negative days
@@ -69,59 +80,68 @@ void Evento::setFecha(int dia, int mes, int anio) {
             ||  (!(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && dia > 30)
             ) {
         cout << "ERROR | OUT OF RANGE DAY" << endl;
-        return;
+        return false;
     }
 
     this -> dia = dia;
     this -> mes = mes;
     this -> anio = anio;
+
+    return true;
 }
 
-std::string Evento::getArtista() const {
+string Evento :: getArtista() const {
     return artista;
 }
 
-void Evento::setArtista(const std::string &artista) {
-    Evento::artista = artista;
+void Evento :: setArtista(const string &artista) {
+    Evento :: artista = artista;
 }
 
-std::string Evento::getDireccion() const {
+string Evento :: getDireccion() const {
     return direccion;
 }
 
-void Evento::setDireccion(const std::string &direccion) {
-    Evento::direccion = direccion;
+void Evento :: setDireccion(const string &direccion) {
+    this -> direccion = direccion;
 }
 
-void Evento::setHorario(int hora, int minuto) {
-    if (hora < 0 || hora > 24) {
-        std::cerr << "Las horas del horario tienen que estar entre 0 y 24 horas";
-        return;
+bool Evento :: setHorario(int hora, int minuto) {
+    if (hora < 0 || hora > 23) {
+        cerr << "Las horas del horario tienen que estar entre 0 y 23 horas";
+        return false;
     }
-    if (minuto < 0 || minuto > 60) {
-        std::cerr << "Los minutos del horario tienen que estar entre 0 y 60 minutos";
-        return;
+    if (minuto < 0 || minuto > 59) {
+        cerr << "Los minutos del horario tienen que estar entre 0 y 59 minutos";
+        return false;
     }
+    return true;
 }
 
-std::string Evento::getHorario() const {
-    return std::to_string(hora) + ":" + std::to_string(minuto);
+string Evento :: getHorario() const {
+    return (hora < 10 ? "0" : "") + to_string(hora) + ":" + (minuto < 10 ? "0" : "") + to_string(minuto);
 }
 
-float Evento::getPrecio() const {
+float Evento :: getPrecio() const {
     return precio;
 }
 
-void Evento::setPrecio(float precio) {
-    Evento::precio = precio;
+void Evento :: setPrecio(float precio) {
+    this -> precio = precio;
 }
 
-void Evento::display() const {
-    std::cout << "--- Datos del Evento ---" << std::endl;
-    std::cout << "Nombre: " << nombre << std::endl;
-    std::cout << "Lugar: " << lugar << std::endl;
-    std::cout << "Fecha: " << getFecha() << std::endl;
-    std::cout << "Artista: " << artista << std::endl;
-    std::cout << "Direccion: " << direccion << std::endl;
-    std::cout << "Horario: " << getHorario() << std::endl;
+void Evento :: setCatchphrase (string &x) {
+    catchphrase = x;
+}
+
+string Evento :: getCatchphrase () const {
+    return catchphrase;
+}
+
+void Evento :: display() const {
+    cout << "\tNombre: " << nombre << endl;
+    cout << "\tArtista: " << artista << endl;
+    cout << "\tDirección: " << direccion << endl;
+    cout << "\tFecha: " << getFecha() << "\tHorario: " << getHorario() << endl;
+    cout << "==============================" << endl;
 }

@@ -1,3 +1,8 @@
+/*  nombre: Evento
+*   colaboradores: David Emmanuel Santana Romero y Braulio Chamerry
+*   fecha: 21 de mayo de 2023
+*/
+
 #ifndef TICKETMASTER2_EVENTO_H
 #define TICKETMASTER2_EVENTO_H
 
@@ -6,46 +11,51 @@ using namespace std;
 
 class Evento {
 private:
-    std::string nombre;
-    std::string lugar;
+    string nombre;
+    string lugar;
     int dia, mes, anio;
-    std::string artista;
-    std::string direccion;
+    string artista;
+    string direccion;
     int hora, minuto;
     float precio;
+    string catchphrase;
 public:
 
-    Evento(string nombre, string lugar, int dia, int mes, int anio, string artista, string direccion, int hora, int minuto, float precio);
+    Evento(string, string, int, int, int, string, string, int, int, float, string);
 
     ~Evento();
 
-    std::string getNombre() const;
+    string getNombre() const;
 
-    void setNombre(const std::string &nombre);
+    void setNombre(const string &);
 
-    std::string getLugar() const;
+    string getLugar() const;
 
-    void setLugar(const std::string &lugar);
+    void setLugar(const string &);
 
-    void setFecha(int dia, int mes, int anio);
+    bool setFecha(int, int, int);
 
-    std::string getFecha() const;
+    string getFecha() const;
 
-    std::string getArtista() const;
+    string getArtista() const;
 
-    void setArtista(const std::string &artista);
+    void setArtista(const string &);
 
-    std::string getDireccion() const;
+    string getDireccion() const;
 
-    void setDireccion(const std::string &direccion);
+    void setDireccion(const string &);
 
-    void setHorario(int hora, int minuto);
+    bool setHorario(int, int);
 
-    std::string getHorario() const;
+    string getHorario() const;
 
     float getPrecio() const;
 
-    void setPrecio(float precio);
+    void setPrecio(float);
+
+    void setCatchphrase (string &);
+
+    string getCatchphrase () const;
 
     void display() const;
 
