@@ -41,7 +41,7 @@ _# Proyecto final - ticketmaster2
         y de desplegara el menu de tienda oficial. <br>
         - __Chambear:__ <br>
         Al presionar esta opcion se te dara una suma de dinero aleatoria para que puedas pagar tus boletos. <br>
-        -__Salir:__ <br>
+        - __Salir:__ <br>
         Regresa al Menu Cliente. <br>
       - __Crear Usuario:__ <br>
       __Contraseña:__ <br>
@@ -52,6 +52,10 @@ _# Proyecto final - ticketmaster2
       - __Salir:__ <br>
       Regresa al Menu Principal. <br>
     - __Administrador:__ <br>
+    - __Salir:__ <br>
+    Sale del programa. <br>
+    **Entrada**: *N/A* <br>
+    **Salida**: *Guardando datos y limpindo la memoria. <br>
     
       
       
