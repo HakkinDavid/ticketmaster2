@@ -51,6 +51,10 @@ _# Proyecto final - ticketmaster2
       **Entrada**: *N/A* <br>
       **Salida**: *Menu Principal* <br>
     - __Administrador:__ <br>
+      - __Crear Evento:__ <br>
+      - __Estadisticas de ventas:__ <br>
+      - __Informacion de Usuarios:__ <br>
+      - _Cambiar Contraseña Maestra:__ <br>
     - __Salir:__ <br>
     Sale del programa. <br>
     **Entrada**: *N/A* <br>
