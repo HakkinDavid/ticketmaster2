@@ -65,7 +65,7 @@ _# Proyecto final - ticketmaster2
       **Salida**: *Lista de informacion de clientes* (ID, Cantidad de boletos, Saldo actual) <br>
       - __Cambiar Contraseña Maestra:__ <br>
       **Entrada**: *Contraseña* (8 a 30 caracteres) <br>
-      **Salida**: *Contraseña* (Ocultada) <br>
+      **Salida**: *Contraseña* (Oculta) <br>
       - __Salir__ <br>
       Regresa al Menu Principal. <br>
       **Entrada**: *N/A* <br>
