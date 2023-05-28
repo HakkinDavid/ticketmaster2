@@ -41,6 +41,7 @@ void Tienda :: display (Cliente & C) {
         getchar();
 
         if (boleto < 1 || boleto > eventos->size()) {
+            system("cls");
             cout << "Regresando ..." << endl;
             break;
         }
