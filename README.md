@@ -16,7 +16,7 @@ _# Proyecto final - ticketmaster2
     - __Cliente:__
     - A continuacion, se desplegara un nuevo menu con 3 opciones: Iniciar Sesion, Crear Usuario y Salir.
       - __Iniciar Sesion__:  <br>
-      __ID:__
+      __ID:__ <br>
       Se te pedira un ID ya antes proporcionado al crear un usuario. <br>
       _En caso de no tener un ID o escribir uno incorrecto se desplegara en pantalla un mensaje de error y se volvera a mostrar
       el menu de clientes donde podras crear un usuario (en caso de que no cuentes con tu ID), o volver a escribir tu ID correctamente. <br>
