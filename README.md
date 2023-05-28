@@ -43,6 +43,8 @@ _# Proyecto final - ticketmaster2
         Al presionar esta opcion se te dara una suma de dinero aleatoria para que puedas pagar tus boletos. <br>
         - __Salir:__ <br>
         Regresa al Menu Cliente. <br>
+        **Entrada**: *N/A* <br>
+        **Salida**: *Menu del Cliente* <br>
       - __Crear Usuario:__ <br>
       __Contraseña:__ <br>
       Ecribe una contraseña para que puedas iniciar sesion como usuario. <br>
@@ -51,6 +53,8 @@ _# Proyecto final - ticketmaster2
       _Luego nuevamente se mostrara el menu de cliente donde ya podras iniciar sesion con tu ID y contraseña._ <br>
       - __Salir:__ <br>
       Regresa al Menu Principal. <br>
+      **Entrada**: *N/A* <br>
+      **Salida**: *Menu Principal* <br>
     - __Administrador:__ <br>
     - __Salir:__ <br>
     Sale del programa. <br>
