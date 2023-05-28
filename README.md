@@ -17,40 +17,35 @@ _# Proyecto final - ticketmaster2
     A continuacion, se desplegara un nuevo menu con 3 opciones: Iniciar Sesion, Crear Usuario y Salir. <br>
     __NOTA:__ Si eres nuevo ingresa a la opcion "Crear Usuario" para poder asignarte tu ID. 
       - __Iniciar Sesion:__  <br>
-      __ID:__ <br>
       Se te pedira un ID ya antes proporcionado al crear un usuario. <br>
-      _En caso de no tener un ID o escribir uno incorrecto se desplegara en pantalla un mensaje de error y se volvera a mostrar
+      **Entrada**: *int y contraseña* (Tu ID y contraseña). <br>
+      **Salida**: *"Sesion Iniciada" + Bono por iniciar sesion*  <br>
+      __NOTA:__ _En caso de no tener un ID o escribir uno incorrecto se desplegara en pantalla un mensaje de error y se volvera a mostrar
       el menu de clientes donde podras crear un usuario (en caso de que no cuentes con tu ID), o volver a escribir tu ID correctamente._ <br>
-      __Contraseña:__ <br>
-      Se te preguntara por una contraseña ya antes solicitada. <br>
       _Tienes solamente 3 intentos para escribir tu contraseña correctamente o se mostrara un mensaje en pantalla._ <br>
-      Una vez realizadas estas operaciones se te dara un bono por incio de sesion. <br>
       Seguido de esto se desplegara un nuevo menu con 4 opciones: Inventario, Comprar, Chambear y Salir. <br>
         - __Inventario:__ <br>
-        Se encarga de desplegar todos los boletos que adquieras como comprador, donde se especifica todos los detalles de tu evento. <br>
-        Al mostrarse en pantalla todos tus boletos comprados, ahi mismo podras especificar el ID de boleto a usar, o bien presionar 0 
-        para negarse a utilizar algun boleto. <br>
+        **Entrada**: *int* (ID del boleto a usar o 0) <br>
+        **Salida**: *Lista de boletos comprados* <br>
         _En caso de no contar con algun boleto, se te avisara y tendras que presionar ENTER para regresar._
         - __Comprar:__ <br> 
-        En esta opcion podras comprar cualquier boleto de los eventos disponibles. <br>
-        Solamente especifica el ID del boleto (se encuentra en la parte superior de cada evento). <br>
-        Se te hara una breve pregunta preguntando si deseas que tu boleto sea VIP incrementando el precio del boleto. <br>
-        _Si deseas comprar la modalidad VIP presiona 1._ <br>
-        _Si no quiere comprar la modalidad VIP presiona 0._ <br>
+        **Entrada**: *int* (ID de boleto a comprar o 0 para cancelar) <br>
+        Si quieres que tu boleto sea VIP presiona 1, si no presiona 0.
+        **Salida**: *Lista de Eventos* ( <br>
         __NOTA:__ En caso de no contar con el dinero suficiente, se te mencionara cual es la cantidad de dinero faltante
         y de desplegara el menu de tienda oficial. <br>
         - __Chambear:__ <br>
-        Al presionar esta opcion se te dara una suma de dinero aleatoria para que puedas pagar tus boletos. <br>
+        **Entrada**: *N/A* <br>
+        **Salida**: *Has obtenido "dinero"* <br>
         - __Salir:__ <br>
         Regresa al Menu Cliente. <br>
         **Entrada**: *N/A* <br>
         **Salida**: *Menu del Cliente* <br>
       - __Crear Usuario:__ <br>
-      __Contraseña:__ <br>
       Ecribe una contraseña para que puedas iniciar sesion como usuario. <br>
-      __NOTA:__ La contraseña debera contener de 8 a 30 caracteres. <br>
-      Se te proporcionara un ID, ademas de un bono por crear una cuenta nueva. <br>
-      _Luego nuevamente se mostrara el menu de cliente donde ya podras iniciar sesion con tu ID y contraseña._ <br>
+      **Entrada**: *Contraseña (8 a 30 caracteres)* <br>
+      **Salida**: *Tu contraseña, ID y un bono de dinero.* <br>
+      __NOTA:__ Nuevamente se mostrara el menu de cliente donde ya podras iniciar sesion con tu ID y contraseña._ <br>
       - __Salir:__ <br>
       Regresa al Menu Principal. <br>
       **Entrada**: *N/A* <br>
