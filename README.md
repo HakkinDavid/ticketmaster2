@@ -25,7 +25,7 @@
         - __Inventario:__<br>
         **Entrada**: *int* (ID del boleto a usar o 0 para cancelar)<br>
         **Salida**: *Lista de boletos comprados*<br>
-        _En caso de tener boletos, se muestra un mensaje indicando presionar ENTER para regresar._
+        _En caso de no tener boletos, se muestra un mensaje indicando presionar ENTER para regresar._
         - __Comprar:__<br>
         **Entrada**: *int* (ID del boleto a comprar o 0 para cancelar)<br>
         Si quieres comprar la experiencia VIP presiona 1, en caso contrario presiona 0.<br>
@@ -49,6 +49,8 @@
       **Salida**: *Menú principal*<br>
     - __Administrador:__<br>
     **Entrada**: *Contraseña* (Por defecto, previo a configurar el programa es "blockbuster123")<br>
+    __NOTA:__ _Solo cuentas con 3 intentos para escribir la contraseña correctamente, de lo contrario se mostrará un mensaje de error en pantalla y regresarás al menú de clientes._<br>
+    Posteriormente, se desplegará un menú con herramientas útiles para administrar Ticketmaster2.
     **Salida**: *Menú del administrador*<br>
       - __Crear evento:__<br>
       Crea un nuevo evento.<br>
