@@ -16,7 +16,7 @@ _# Proyecto final - ticketmaster2
     A continuación, se desplegará un nuevo menú con 3 opciones: Iniciar Sesión, Crear Usuario y Salir. <br>
     __NOTA:__ Si eres nuevo ingresa a la opción "Crear Usuario" para poder asignar un ID. 
       - __Iniciar Sesión:__  <br>
-      Inicia Sesión con tu cuenta Ticektmaster2 <br>
+      Inicia Sesión con tu cuenta Ticketmaster2 <br>
       **Entrada**: *int y contraseña* (Tu ID y contraseña). <br>
       **Salida**: *"Sesión Iniciada" + Bono por iniciar sesión*  <br>
       __NOTA:__ _En caso de no tener un ID se muestra en pantalla un mensaje de error y se volverá a mostrar
@@ -31,13 +31,13 @@ _# Proyecto final - ticketmaster2
         **Entrada**: *int* (ID de boleto a comprar o 0 para cancelar) <br>
         Si quieres que el boleto sea VIP presiona 1, si no presiona 0. <br>
         **Salida**: *Lista de Eventos* <br>
-        __NOTA:__ En caso de no contar con el dinero suficiente, se mencionara cual es la cantidad de dinero faltante
+        __NOTA:__ En caso de no contar con el dinero suficiente, se mencionará cual es la cantidad de dinero faltante
         y se muestra el menú de tienda. <br>
         - __Chambear:__ <br>
         **Entrada**: *N/A* <br>
         **Salida**: *Has obtenido +"dinero"* <br>
         - __Salir:__ <br>
-        Regresa al Menu Cliente. <br>
+        Regresa al Menú del Cliente. <br>
         **Entrada**: *N/A* <br>
         **Salida**: *Menú del Cliente* <br>
       - __Crear Usuario:__ <br>
