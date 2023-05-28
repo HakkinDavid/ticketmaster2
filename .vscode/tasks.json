@@ -7,9 +7,10 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${workspaceRoot}\\main.cpp",
                 "-o",
-                "${fileDirname}\\compiled\\${fileBasenameNoExtension}.exe"
+                "${workspaceRoot}\\ticketmaster.exe",
+                "${workspaceRoot}\\icon.res"
             ],
             "options": {
                 "cwd": "C:\\msys64\\mingw64\\bin"
