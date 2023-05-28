@@ -16,7 +16,7 @@ _# Proyecto final - ticketmaster2
     A continuación, se desplegará un nuevo menú con 3 opciones: Iniciar Sesión, Crear Usuario y Salir. <br>
     __NOTA:__ Si eres nuevo ingresa a la opción "Crear Usuario" para poder asignar un ID. 
       - __Iniciar Sesión:__  <br>
-      Inicia Sesión con tu cuenta Ticektmaster2 <br>
+      Inicia Sesión con tu cuenta Ticketmaster2 <br>
       **Entrada**: *int y contraseña* (Tu ID y contraseña). <br>
       **Salida**: *"Sesión Iniciada" + Bono por iniciar sesión*  <br>
       __NOTA:__ _En caso de no tener un ID se muestra en pantalla un mensaje de error y se volverá a mostrar
