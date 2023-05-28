@@ -55,7 +55,7 @@ _# Proyecto final - ticketmaster2
     - __Salir:__ <br>
     Sale del programa. <br>
     **Entrada**: *N/A* <br>
-    **Salida**: *Guardando datos y limpindo la memoria. <br>
+    **Salida**: *Guardando datos y limpiando la memoria...* <br>
     
       
       
