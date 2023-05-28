@@ -18,7 +18,7 @@
       - __Iniciar sesión:__<br>
       Inicia sesión con tu cuenta Ticketmaster2<br>
       **Entrada**: *int y string* (tu ID y contraseña).<br>
-      **Salida**: *"Sesión iniciada. Bono por iniciar sesión: +$(" + bono + ")"*<br>
+      **Salida**: *Sesión iniciada. Bono por iniciar sesión: +$* + bono<br>
       __NOTA:__ _En caso de ingresar un ID no válido, se muestra en pantalla un mensaje de error y se regresa al menú de clientes._<br>
       _Solo cuentas con 3 intentos para escribir la contraseña correctamente, de lo contrario se mostrará un mensaje de error en pantalla y regresarás al menú de clientes._<br>
       Posteriormente, se desplegará un nuevo menú con 4 opciones: Inventario, Comprar, Chambear y Salir.<br>
@@ -33,7 +33,7 @@
         __NOTA:__ Si no cuentas con el dinero suficiente para alguna transacción, se te indicará cuánto dinero hace falta.<br>
         - __Chambear:__<br>
         **Entrada**: *N/A*<br>
-        **Salida**: *Has obtenido +$" + dinero + "*<br>
+        **Salida**: *Has obtenido +$* + dinero<br>
         - __Salir:__<br>
         Regresa al menú del cliente.<br>
         **Entrada**: *N/A*<br>
