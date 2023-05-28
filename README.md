@@ -37,7 +37,7 @@ _# Proyecto final - ticketmaster2
         **Entrada**: *N/A* <br>
         **Salida**: *Has obtenido +"dinero"* <br>
         - __Salir:__ <br>
-        Regresa al Menu Cliente. <br>
+        Regresa al Menú del Cliente. <br>
         **Entrada**: *N/A* <br>
         **Salida**: *Menú del Cliente* <br>
       - __Crear Usuario:__ <br>
