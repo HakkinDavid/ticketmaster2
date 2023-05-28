@@ -14,7 +14,7 @@ _# Proyecto final - ticketmaster2
   _Al terminar cualquier operacion siempre puedes presionar la tecla - para regresar al menu principal._
 - Al escoger una de las opciones: <br>
     - __Cliente:__ <br>
-    A continuacion, se desplegara un nuevo menu con 3 opciones: Iniciar Sesion, Crear Usuario y Salir.
+    A continuacion, se desplegara un nuevo menu con 3 opciones: Iniciar Sesion, Crear Usuario y Salir. <br>
     __NOTA:__ Si eres nuevo ingresa a la opcion "Crear Usuario" para poder asignarte tu ID. 
       - __Iniciar Sesion:__  <br>
       __ID:__ <br>
@@ -33,5 +33,12 @@ _# Proyecto final - ticketmaster2
         _En caso de no contar con algun boleto, se te avisara y tendras que presionar ENTER para regresar._
         - __Comprar:__ <br> 
         En esta opcion podras comprar cualquier boleto de los eventos disponibles. <br>
+        Solamente especifica el ID del boleto (se encuentra en la parte superior de cada evento). <br>
+        Se te hara una breve pregunta preguntando si deseas que tu boleto sea VIP incrementando el precio del boleto. <br>
+        _Si deseas comprar la modalidad VIP presiona 1._ <br>
+        _Si no quiere comprar la modalidad VIP presiona 0._ <br>
+        __NOTA:__ En caso de no contar con el dinero suficiente, se te mencionara cual es la cantidad de dinero faltante
+        y de desplegara el menu de tienda oficial. <br>
+        - __Chambear:__ <br>
         
   
