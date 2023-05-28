@@ -9,5 +9,9 @@ _# Proyecto final - ticketmaster2
 - El presente proyecto recrea a pequeña escala un sistema de venta de boletos similar al funcionamiento de la empresa Ticketmaster. 
 ---
 ### Manual de Usuario
-- En primer instancia, se desplegara un menu
-
+- Al inicio, el programa muestra un menu con 2 opciones disponibles: Cliente y Administrador.
+- Este es el menu principal del programa, en el cual puedes elegir una de las opciones al presionar 1 o 2, o bien puedes salir del programa presionando la tecla -.
+- Al escoger una de las opciones:
+  _Al terminar cualquier operacion siempre podras presionar la tecla - para regresar al menu principal._
+    - __Cliente:__
+    -    
