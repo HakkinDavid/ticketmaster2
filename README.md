@@ -31,7 +31,7 @@ _# Proyecto final - ticketmaster2
         **Entrada**: *int* (ID de boleto a comprar o 0 para cancelar) <br>
         Si quieres que el boleto sea VIP presiona 1, si no presiona 0. <br>
         **Salida**: *Lista de Eventos* <br>
-        __NOTA:__ En caso de no contar con el dinero suficiente, se mencionara cual es la cantidad de dinero faltante
+        __NOTA:__ En caso de no contar con el dinero suficiente, se mencionará cual es la cantidad de dinero faltante
         y se muestra el menú de tienda. <br>
         - __Chambear:__ <br>
         **Entrada**: *N/A* <br>
