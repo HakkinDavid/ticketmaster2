@@ -19,7 +19,7 @@ _# Proyecto final - ticketmaster2
       __ID:__ <br>
       Se te pedira un ID ya antes proporcionado al crear un usuario. <br>
       _En caso de no tener un ID o escribir uno incorrecto se desplegara en pantalla un mensaje de error y se volvera a mostrar
-      el menu de clientes donde podras crear un usuario (en caso de que no cuentes con tu ID), o volver a escribir tu ID correctamente. <br>
+      el menu de clientes donde podras crear un usuario (en caso de que no cuentes con tu ID), o volver a escribir tu ID correctamente._ <br>
       __Contraseña:__ <br>
       Se te preguntara por una contraseña ya antes solicitada. <br>
       _Tienes solamente 3 intentos para escribir tu contraseña correctamente o se mostrara un mensaje en pantalla._
