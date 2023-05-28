@@ -40,5 +40,20 @@ _# Proyecto final - ticketmaster2
         __NOTA:__ En caso de no contar con el dinero suficiente, se te mencionara cual es la cantidad de dinero faltante
         y de desplegara el menu de tienda oficial. <br>
         - __Chambear:__ <br>
+        Al presionar esta opcion se te dara una suma de dinero aleatoria para que puedas pagar tus boletos. <br>
+        -__Salir:__ <br>
+        Regresa al Menu Cliente. <br>
+      - __Crear Usuario:__ <br>
+      __Contraseña:__ <br>
+      Ecribe una contraseña para que puedas iniciar sesion como usuario. <br>
+      __NOTA:__ La contraseña debera contener de 8 a 30 caracteres. <br>
+      Se te proporcionara un ID, ademas de un bono por crear una cuenta nueva. <br>
+      _Luego nuevamente se mostrara el menu de cliente donde ya podras iniciar sesion con tu ID y contraseña._ <br>
+      - __Salir:__ <br>
+      Regresa al Menu Principal. <br>
+    - __Administrador:__ <br>
+    
+      
+      
         
   
