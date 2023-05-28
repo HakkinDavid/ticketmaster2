@@ -22,8 +22,7 @@ _# Proyecto final - ticketmaster2
       el menu de clientes donde podras crear un usuario (en caso de que no cuentes con tu ID), o volver a escribir tu ID correctamente._ <br>
       __Contraseña:__ <br>
       Se te preguntara por una contraseña ya antes solicitada. <br>
-      _Tienes solamente 3 intentos para escribir tu contraseña correctamente o se mostrara un mensaje en pantalla._
-      <br>
+      _Tienes solamente 3 intentos para escribir tu contraseña correctamente o se mostrara un mensaje en pantalla._ <br>
       Una vez realizadas estas operaciones se te dara un bono por incio de sesion. <br>
       Seguido de esto se desplegara un nuevo menu con 4 opciones: Inventario, Comprar, Chambear y Salir. <br>
         - __Inventario:__ <br>
