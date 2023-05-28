@@ -11,7 +11,6 @@ _# Proyecto final - ticketmaster2
 ### Manual de Usuario
 - Al inicio, el programa muestra un menu con 2 opciones disponibles: Cliente y Administrador.
 - Este es el menu principal del programa, elige una de las opciones al presionar 1 o 2, o bien salir del programa presionando la tecla -. <br>
-  _Al terminar cualquier operacion puedes presionar la tecla - para regresar al menu principal._
 - Al escoger una de las opciones: <br>
     - __Cliente:__ <br>
     A continuacion, se desplegara un nuevo menu con 3 opciones: Iniciar Sesion, Crear Usuario y Salir. <br>
