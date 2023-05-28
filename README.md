@@ -5,7 +5,7 @@ _# Proyecto final - ticketmaster2
 - David Emmanuel Santana 
 - Renata Flores
 ---
-### Informacion General
+### Información General
 - El presente proyecto recrea a pequeña escala un sistema de venta de boletos similar al funcionamiento de la empresa Ticketmaster. 
 
 
