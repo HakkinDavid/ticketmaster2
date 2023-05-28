@@ -51,10 +51,26 @@ _# Proyecto final - ticketmaster2
       **Entrada**: *N/A* <br>
       **Salida**: *Menu Principal* <br>
     - __Administrador:__ <br>
+    **Entrada**: *Contraseña* (blockbuster123) <br>
+    **Salida**: *Menu del Administrador* <br>
       - __Crear Evento:__ <br>
+      Crea un nuevo evento. <br>
+      **Entrada**: *Detalles del Evento* (nombre, lugar, año, mes, dia, hora, minuto, artista, direccion, precio) <br>
+      **Salida**: *N/A* <br>
       - __Estadisticas de ventas:__ <br>
+      Muestra las ganancias generadas por la venta de boletos. <br>
+      **Entrada**: *float* (costoTotal = costo administrativo) <br>
+      **Salida**: *Ingresos Totales, Ganancias, Porcentaje de Ganancias.* <br>
       - __Informacion de Usuarios:__ <br>
-      - _Cambiar Contraseña Maestra:__ <br>
+      **Entrada**: *N/A* <br>
+      **Salida**: *Lista de informacion de clientes* (ID, Cantidad de boletos, Saldo actual) <br>
+      - __Cambiar Contraseña Maestra:__ <br>
+      **Entrada**: *Contraseña* (8 a 30 caracteres) <br>
+      **Salida**: *Contraseña* (Ocultada) <br>
+      - __Salir__ <br>
+      Regresa al Menu Principal. <br>
+      **Entrada**: *N/A* <br>
+      **Salida**: *Menu Principal* <br>
     - __Salir:__ <br>
     Sale del programa. <br>
     **Entrada**: *N/A* <br>
