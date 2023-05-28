@@ -30,7 +30,7 @@ _# Proyecto final - ticketmaster2
         _En caso de no contar con algun boleto, se te avisara y tendras que presionar ENTER para regresar._
         - __Comprar:__ <br> 
         **Entrada**: *int* (ID de boleto a comprar o 0 para cancelar) <br>
-        Si quieres que tu boleto sea VIP presiona 1, si no presiona 0.
+        Si quieres que tu boleto sea VIP presiona 1, si no presiona 0. <br>
         **Salida**: *Lista de Eventos* ( <br>
         __NOTA:__ En caso de no contar con el dinero suficiente, se te mencionara cual es la cantidad de dinero faltante
         y de desplegara el menu de tienda oficial. <br>
