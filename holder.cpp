@@ -10,23 +10,28 @@
 #include <iostream>
 using namespace std;
 
+// limpiar el inventario y eliminar el objeto abstracto Holder
 Holder :: ~Holder () {
     inventario.clear();
 }
 
+// establecer el inventario
 void Holder :: setInventario (vector <Ticket> & x) {
     inventario = x;
 }
 
+// obtener el tamaño del inventario
 int Holder :: getInventarioSize () const {
     return inventario.size();
 }
 
+// añadir ticket
 void Holder :: addTicket (Ticket & x) {
     inventario.push_back(x);
     inventario.back().setID(inventario.size());
 }
 
+// eliminar ticket
 void Holder :: deleteTicket (int x) {
     if (x < 1 || x > inventario.size()) {
         cout << "ERROR | OUT OF INVENTORY RANGE (1 TO " << inventario.size() << ")" << endl;
@@ -38,6 +43,7 @@ void Holder :: deleteTicket (int x) {
     }
 }
 
+// desplegar el inventario
 void Holder :: display () {
     for (int i = 0; i < inventario.size(); i++) {
         inventario[i].display();
