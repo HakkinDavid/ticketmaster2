@@ -80,6 +80,10 @@ Menu session ({
 
 // programa principal
 int main () {
+    system("title ticketmaster 2"); // establecer el título de la ventana
+    system("Color 1F"); // establecer el color de la ventana en azul y el texto en blanco
+    system("chcp 65001"); // establecer la página de códigos a desplegar (para permitir el uso de caracteres en español)
+    system("cls");
     load (); // cargar la base de datos
     mainMenu.display(true, true); // desplegar el menú principal
     cout << logo << endl; // desplegar el logotipo para despedirse
