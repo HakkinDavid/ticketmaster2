@@ -11,6 +11,7 @@
 #include "evento.h"
 using namespace std;
 
+// crear el evento con sus datos
 Evento :: Evento(string nombre = "Torero", string lugar = "Estadio Azteca", int dia = 9, int mes = 6, int anio = 2023, string artista = "Chayanne",
                string direccion = "CDMX", int hora = 12, int minuto = 0, float precio = 20000, string catchphrase = "🎵") {
     this -> nombre = nombre;
@@ -26,6 +27,7 @@ Evento :: Evento(string nombre = "Torero", string lugar = "Estadio Azteca", int 
     this -> catchphrase = catchphrase;
 }
 
+// eliminar el Evento
 Evento :: ~Evento() {
     this -> nombre = "";
     this -> lugar = "";
@@ -39,26 +41,32 @@ Evento :: ~Evento() {
     this -> precio = 0;
 }
 
+// obtener el nombre
 string Evento :: getNombre() const {
     return nombre;
 }
 
+// establecer el nombre
 void Evento :: setNombre(const string &nombre) {
     this -> nombre = nombre;
 }
 
+// obtener el lugar
 string Evento :: getLugar() const {
     return lugar;
 }
 
+// establecer el lugar
 void Evento :: setLugar(const string &lugar) {
     this -> lugar = lugar;
 }
 
+// obtener la fecha
 string Evento :: getFecha() const {
     return (dia < 10 ? "0" : "") + to_string(dia) + "/" + (mes < 10 ? "0" : "") + to_string(mes) + "/" + (anio < 10 ? "0" : "") + to_string(anio);
 }
 
+// establecer la fecha
 bool Evento :: setFecha(int dia, int mes, int anio) {
     if (anio < 2023) {
         cout << "El año tiene que ser después de 2023.";
@@ -70,14 +78,14 @@ bool Evento :: setFecha(int dia, int mes, int anio) {
         return false;
     }
 
-    if (    dia < 1 // no month has day 0, nor does it have negative days
-            ||  dia > 31 // no month has over 31 days
-            // non leap year february cannot have over 28 days
-            ||  (mes == 2 && !(anio%4 == 0 && (anio%100 != 0 || anio%400 == 0)) && dia > 28)
-            // february never does have more than 29 days ... actually, there was a february 30, in sweden 1712
-            ||  (mes == 2 && dia > 29)
-            // some months are 30 days long
+    if (    dia < 1 // ningún mes tiene día 0, ni días negativos
+            ||  dia > 31 // ningún mes tiene más de 31 días
+            // algunos meses solo tienen 30 días
             ||  (!(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && dia > 30)
+            // febrero jamás tiene más de 29 días ... aunque en realidad, hubo un 30 de febrero en suecia 1712
+            ||  (mes == 2 && dia > 29)
+            // febrero de año no bisiesto no puede tener más de 28 días
+            ||  (mes == 2 && dia > 28 && !(anio%4 == 0 && (anio%100 != 0 || anio%400 == 0)))
             ) {
         cout << "ERROR | OUT OF RANGE DAY" << endl;
         return false;
@@ -90,22 +98,27 @@ bool Evento :: setFecha(int dia, int mes, int anio) {
     return true;
 }
 
+// obtener el artista
 string Evento :: getArtista() const {
     return artista;
 }
 
+// establecer el artista
 void Evento :: setArtista(const string &artista) {
     Evento :: artista = artista;
 }
 
+// obtener la dirección
 string Evento :: getDireccion() const {
     return direccion;
 }
 
+// establecer la dirección
 void Evento :: setDireccion(const string &direccion) {
     this -> direccion = direccion;
 }
 
+// establecer el horario
 bool Evento :: setHorario(int hora, int minuto) {
     if (hora < 0 || hora > 23) {
         cerr << "Las horas del horario tienen que estar entre 0 y 23 horas";
@@ -118,26 +131,32 @@ bool Evento :: setHorario(int hora, int minuto) {
     return true;
 }
 
+// obtener el horario
 string Evento :: getHorario() const {
     return (hora < 10 ? "0" : "") + to_string(hora) + ":" + (minuto < 10 ? "0" : "") + to_string(minuto);
 }
 
+// obtener el precio
 float Evento :: getPrecio() const {
     return precio;
 }
 
+// establecer el precio
 void Evento :: setPrecio(float precio) {
     this -> precio = precio;
 }
 
+// establecer la frase icónica
 void Evento :: setCatchphrase (string &x) {
     catchphrase = x;
 }
 
+// obtener la frase icónica
 string Evento :: getCatchphrase () const {
     return catchphrase;
 }
 
+// desplegar los datos del evento
 void Evento :: display() const {
     cout << "\tNombre: " << nombre << endl;
     cout << "\tArtista: " << artista << endl;
