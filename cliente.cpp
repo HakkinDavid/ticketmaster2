@@ -11,7 +11,7 @@
 #include <iomanip>
 using namespace std;
 
-// contabilizar cuántos objetos se han creado
+// contabilizar cuántos objetos Cliente se han creado
 int Cliente :: objectCount = 0;
 
 // crear el Cliente con su contraseña y establecer el ID
@@ -65,6 +65,11 @@ string Cliente :: getPassword () const {
     return password;
 }
 
+void Cliente :: addTicket (bool VIP, Evento & evento) {
+    inventario.emplace_back(VIP, evento);
+    inventario.back().setID(inventario.size());
+}
+
 // utilizar un ticket
 void Cliente :: useTicket (int x) {
     if (x < 1 || x > inventario.size()) {
@@ -78,7 +83,7 @@ void Cliente :: useTicket (int x) {
 }
 
 // desplegar los elementos del inventario de la cuenta
-void Cliente::displayInventario () {
+void Cliente::display () {
     if (inventario.size() < 1) {
         cout << "No tienes boletos. [Enter para regresar]" << endl;
         getchar();
@@ -95,4 +100,12 @@ void Cliente::displayInventario () {
     }
     // usar el ticket
     useTicket(boleto);
+}
+
+// desplegar la información esencial del cliente en pantalla
+ostream & operator << (ostream & o, const Cliente & c) {
+    o << "[ID: " << c.getID() << " | ";
+    o << "Cantidad de boletos: " << c.getInventarioSize() << " | ";
+    o << "Saldo actual: $" << c.getCash() << "]" << endl;
+    return o;
 }

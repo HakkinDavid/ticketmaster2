@@ -88,9 +88,7 @@ void Administrador :: crearEvento () {
 // obtener la información de todos los clientes en el vector apuntado
 void Administrador :: infoClientes () {
     for(Cliente &i : (*clientes)){
-        cout << "[ID: " << i.getID() << " | ";
-        cout << "Cantidad de boletos: " << i.getInventarioSize() << " | ";
-        cout << "Saldo actual: $" << i.getCash() << "]" << endl;
+        cout << i;
     }
 } 
 

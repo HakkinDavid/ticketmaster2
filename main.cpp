@@ -73,7 +73,7 @@ Menu mainMenu ({
 }, logo + "MENÚ PRINCIPAL");
 
 Menu session ({
-        {'1', {"Inventario", [] () { clientes[sessionID].displayInventario (); } }},
+        {'1', {"Inventario", [] () { clientes[sessionID].display (); } }},
         {'2', {"Comprar", [] () { tienda -> display (clientes[sessionID]); } }},
         {'3', {"Chambear", trabajar}}
 }, logo);
