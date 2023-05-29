@@ -68,9 +68,7 @@ void Tienda :: display (Cliente & C) {
         // restar el efectivo de la cuenta
         C.setCash(C.getCash() - precio);
 
-        // crear el ticket
-        Ticket ticket(vip, (*eventos)[boleto-1]);
-        C.addTicket(ticket); // añadir el ticket al inventario del cliente referenciado
+        C.addTicket(vip, (*eventos)[boleto-1]); // añadir el ticket al inventario del cliente referenciado
         fondos += precio; // añadir los fondos correspondientes a la Tienda
         cout << "Transacción completada" << endl << endl;
     } while (boleto != 0);

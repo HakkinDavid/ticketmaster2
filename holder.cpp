@@ -31,6 +31,12 @@ void Holder :: addTicket (Ticket & x) {
     inventario.back().setID(inventario.size());
 }
 
+// crear ticket
+void Holder :: addTicket (bool VIP, Evento & evento) {
+    inventario.emplace_back(VIP, evento);
+    inventario.back().setID(inventario.size());
+}
+
 // eliminar ticket
 void Holder :: deleteTicket (int x) {
     if (x < 1 || x > inventario.size()) {
