@@ -3,6 +3,7 @@
     fecha: 30 de abril de 2023 **/
 
 #include "Administrador.h"
+#include "tienda.h"
 #include <string>
 #include <iostream>
 #include "cliente.h"

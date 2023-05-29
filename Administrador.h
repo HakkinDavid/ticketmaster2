@@ -5,6 +5,7 @@
 #ifndef ADMINISTRADOR_H
 #define ADMINISTRADOR_H
 #include <string>
+#include "tienda.h"
 #include "cliente.h"
 
 using namespace std;

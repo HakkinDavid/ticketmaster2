@@ -65,6 +65,7 @@ string Cliente :: getPassword () const {
     return password;
 }
 
+// crear un ticket en el inventario
 void Cliente :: addTicket (bool VIP, Evento & evento) {
     inventario.emplace_back(VIP, evento);
     inventario.back().setID(inventario.size());
