@@ -12,9 +12,6 @@
                 "${workspaceRoot}\\ticketmaster.exe",
                 "${workspaceRoot}\\icon.res"
             ],
-            "options": {
-                "cwd": "C:\\msys64\\mingw64\\bin"
-            },
             "problemMatcher": [
                 "$gcc"
             ],
