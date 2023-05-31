@@ -41,7 +41,7 @@ void Tienda :: display (Cliente & C) {
 
         C.displayCash();
 
-        cout << "Especifica el ID de boleto a comprar [0 para regresar]: ";
+        cout << "Especifica el ID de boleto a comprar [Otra tecla para regresar]: ";
         cin >> boleto;
         getchar();
 

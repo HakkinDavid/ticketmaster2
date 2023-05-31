@@ -93,7 +93,7 @@ void Cliente::display () {
     Holder::display();
     // permitir que el usuario utilice un ticket
     int boleto;
-    cout << "Especifica el ID de boleto a usar [0 para ninguno]: ";
+    cout << "Especifica el ID de boleto a usar [Otra tecla para ninguno]: ";
     cin >> boleto;
     getchar();
     if (boleto < 1 || boleto > inventario.size()) {
