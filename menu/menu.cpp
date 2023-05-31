@@ -6,6 +6,7 @@
 #include "menu.h"
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 using namespace std;
 
 Menu :: Menu (vector<pair<char, pair<string, function<void()>>>> options, string header = "") {
@@ -26,8 +27,7 @@ void Menu :: press (bool loop = false) {
     char key = 0;
     bool found = false;
     cout << ">> ";
-    cin >> key;
-    getchar();
+    key = _getch();
     system ("cls");
     if (key == 45) {
         return;
