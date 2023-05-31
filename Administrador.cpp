@@ -3,24 +3,28 @@
     fecha: 30 de abril de 2023 **/
 
 #include "Administrador.h"
+#include "tienda.h"
 #include <string>
 #include <iostream>
 #include "cliente.h"
 
 using namespace std;
 
+// crear el objeto con la referencia al vector de eventos, la referencia al vector de clientes y su contraseña
 Administrador :: Administrador (vector<Evento> &e, vector<Cliente> &c, string password = "12345678") {
     eventos = &e;
     clientes = &c;
     this -> password = password;
 }
 
+// eliminar el objeto
 Administrador :: ~Administrador () {
     eventos = nullptr;
     clientes = nullptr;
     password = "";
 }
 
+// establecer la contraseña
 void Administrador :: setPassword (string password){
     if (password.size() < 8 || password.size() > 30) {
         cout << "La contraseña debe tener de 8 a 30 caracteres" << endl;
@@ -31,18 +35,23 @@ void Administrador :: setPassword (string password){
     }
 }
 
+// obtener la contraseña
 string Administrador :: getPassword () {
     return password;
 }
 
+// crear un evento
 void Administrador :: crearEvento () {
+    // crear el objeto tipo Evento en el vector que señala el puntero
     eventos->emplace_back();
+    // crear un puntero para nuestro Evento
     Evento *eventito = &eventos->back();
     string data;
     array <int, 3> fecha;
     array <int, 2> horario;
     float precio;
 
+    // establecer las propiedades del evento
     cout << "Nombre del evento: ";
     getline(cin, data);
     (*eventito).setNombre(data);
@@ -75,19 +84,16 @@ void Administrador :: crearEvento () {
     getchar();
 
     (*eventito).setPrecio(precio);
-    //eventos->emplace_back(nombre,lugar,dia,mes,anio,artista,direccion,hora,minuto,precio);
 }
 
+// obtener la información de todos los clientes en el vector apuntado
 void Administrador :: infoClientes () {
     for(Cliente &i : (*clientes)){
-        cout << "[ID: " << i.getID() << " | ";
-        //hice una funcion getInventario para saber cuantos boletos compro cada usuario
-        //pero no se si inventario es el que guarda esos datos
-        cout << "Cantidad de boletos: " << i.getInventarioSize() << " | ";
-        cout << "Saldo actual: $" << i.getCash() << "]" << endl;
+        cout << i;
     }
 } 
 
+// obtener las estadísticas de las ventas en la tienda apuntada
 void Administrador :: estadisticasVentas (Tienda &tienda) {
     float costoTotal;
     cout << "Ingresos totales: $" << tienda.getFondos() << endl;

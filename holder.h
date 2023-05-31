@@ -20,6 +20,7 @@ class Holder {
         void setInventario (vector <Ticket> &);
         int getInventarioSize () const;
         void addTicket (Ticket &);
+        virtual void addTicket (bool, Evento &) = 0;
         void deleteTicket (int);
 
         void display ();

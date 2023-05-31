@@ -13,23 +13,28 @@
 #include <iomanip>
 using namespace std;
 
+// crear el objeto tipo Tienda con la referencia al vector de objetos Evento
 Tienda :: Tienda (vector<Evento> &e) {
     fondos = 0;
     eventos = &e;
 }
 
+// eliminar la tienda y borrar el vector, así como limpiar su puntero
 Tienda :: ~Tienda () {
     eventos->clear();
     eventos = nullptr;
 }
 
+// desplegar la tienda y permitirle al cliente referenciado adquirir un boleto
 void Tienda :: display (Cliente & C) {
+    // iterar y desplegar todos los eventos
     for (int i = 0; i < eventos->size(); i++) {
         float precio = (*eventos)[i].getPrecio();
         cout << "ID: " << i + 1 << endl;
         cout << "Precio: $" << fixed << setprecision (2) << precio << endl;
         (*eventos)[i].display();
     }
+    // comprar un boleto
     int boleto;
     do {
         boleto = 0;
@@ -41,6 +46,7 @@ void Tienda :: display (Cliente & C) {
         getchar();
 
         if (boleto < 1 || boleto > eventos->size()) {
+            system("cls");
             cout << "Regresando ..." << endl;
             break;
         }
@@ -59,15 +65,16 @@ void Tienda :: display (Cliente & C) {
             cout << "A chambear, Buddy. Necesitas $" << fixed << setprecision (2) << (precio - C.getCash()) << " más." << endl;
             return;
         }
+        // restar el efectivo de la cuenta
         C.setCash(C.getCash() - precio);
 
-        Ticket ticket(vip, (*eventos)[boleto-1]);
-        C.addTicket(ticket);
-        fondos += precio;
+        C.addTicket(vip, (*eventos)[boleto-1]); // añadir el ticket al inventario del cliente referenciado
+        fondos += precio; // añadir los fondos correspondientes a la Tienda
         cout << "Transacción completada" << endl << endl;
     } while (boleto != 0);
 }
 
+// obtener los fondos actuales de la Tienda
 float Tienda :: getFondos () const {
     return fondos;
 }

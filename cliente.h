@@ -30,8 +30,10 @@ class Cliente : public Holder {
         float getCash () const;
         void displayCash () const;
         string getPassword () const;
-        void displayInventario ();
+        void display ();
 
+        void addTicket (bool VIP, Evento & evento) override;
+        friend ostream & operator << (ostream &, const Cliente &);
     protected:
         void useTicket (int);
 };

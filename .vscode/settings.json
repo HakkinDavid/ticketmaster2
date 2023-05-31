@@ -12,6 +12,12 @@
         "xutility": "cpp",
         "fstream": "cpp",
         "string": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "exception": "cpp",
+        "memory": "cpp",
+        "typeinfo": "cpp",
+        "utility": "cpp",
+        "xmemory": "cpp",
+        "xtr1common": "cpp"
     }
 }
